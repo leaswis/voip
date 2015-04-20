@@ -14,3 +14,16 @@ C:\Users\Laura\Documents\Visual Studio 2012\Projects\WindowsFormsApplication3\Wi
 C:\Users\Laura\Documents\GitHub\voip\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.exe.config
 C:\Users\Laura\Documents\GitHub\voip\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.exe
 C:\Users\Laura\Documents\GitHub\voip\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.pdb
+C:\Users\Przemek J\Desktop\voip\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.exe.config
+C:\Users\Przemek J\Desktop\voip\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.exe
+C:\Users\Przemek J\Desktop\voip\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.pdb
+C:\Users\Przemek J\Desktop\voip\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.csprojResolveAssemblyReference.cache
+C:\Users\Przemek J\Desktop\voip\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Komunikator.resources
+C:\Users\Przemek J\Desktop\voip\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Login.resources
+C:\Users\Przemek J\Desktop\voip\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Properties.Resources.resources
+C:\Users\Przemek J\Desktop\voip\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Rejestracja.resources
+C:\Users\Przemek J\Desktop\voip\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.csproj.GenerateResource.Cache
+C:\Users\Przemek J\Desktop\voip\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.exe
+C:\Users\Przemek J\Desktop\voip\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.pdb
+C:\Users\Przemek J\Desktop\voip\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Facebook.dll
+C:\Users\Przemek J\Desktop\voip\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Facebook.xml
