@@ -11,3 +11,6 @@ C:\Users\Laura\Documents\Visual Studio 2012\Projects\WindowsFormsApplication3\Wi
 C:\Users\Laura\Documents\Visual Studio 2012\Projects\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Rejestracja.resources
 C:\Users\Laura\Documents\Visual Studio 2012\Projects\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Facebook.dll
 C:\Users\Laura\Documents\Visual Studio 2012\Projects\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Facebook.xml
+C:\Users\Laura\Documents\GitHub\voip\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.exe.config
+C:\Users\Laura\Documents\GitHub\voip\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.exe
+C:\Users\Laura\Documents\GitHub\voip\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.pdb

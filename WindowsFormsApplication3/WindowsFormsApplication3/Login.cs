@@ -24,6 +24,8 @@ namespace WindowsFormsApplication3
         public Login()
         {
             InitializeComponent();
+            textBoxHaslo.PasswordChar = '*';
+            textBoxHaslo.MaxLength = 20;
             
         }
 
