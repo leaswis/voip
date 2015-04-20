@@ -39,10 +39,10 @@
             this.label9 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBoxImie = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBoxMiasto = new System.Windows.Forms.TextBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -189,12 +189,13 @@
             this.textBox2.Size = new System.Drawing.Size(127, 20);
             this.textBox2.TabIndex = 10;
             // 
-            // textBox3
+            // textBoxImie
             // 
-            this.textBox3.Location = new System.Drawing.Point(119, 112);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(127, 20);
-            this.textBox3.TabIndex = 11;
+            this.textBoxImie.Location = new System.Drawing.Point(119, 112);
+            this.textBoxImie.Name = "textBoxImie";
+            this.textBoxImie.Size = new System.Drawing.Size(127, 20);
+            this.textBoxImie.TabIndex = 11;
+            this.textBoxImie.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // textBox4
             // 
@@ -210,12 +211,12 @@
             this.textBox5.Size = new System.Drawing.Size(127, 20);
             this.textBox5.TabIndex = 13;
             // 
-            // textBox6
+            // textBoxMiasto
             // 
-            this.textBox6.Location = new System.Drawing.Point(119, 220);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(127, 20);
-            this.textBox6.TabIndex = 14;
+            this.textBoxMiasto.Location = new System.Drawing.Point(119, 220);
+            this.textBoxMiasto.Name = "textBoxMiasto";
+            this.textBoxMiasto.Size = new System.Drawing.Size(127, 20);
+            this.textBoxMiasto.TabIndex = 14;
             // 
             // radioButton1
             // 
@@ -739,10 +740,10 @@
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.textBoxMiasto);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBoxImie);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label9);
@@ -776,10 +777,10 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBoxImie;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBoxMiasto;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.CheckBox checkBox1;

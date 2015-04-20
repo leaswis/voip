@@ -30,6 +30,9 @@ namespace WindowsFormsApplication3
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void InsertUser_info(User_info instance);
+    partial void UpdateUser_info(User_info instance);
+    partial void DeleteUser_info(User_info instance);
     partial void InsertUser_login(User_login instance);
     partial void UpdateUser_login(User_login instance);
     partial void DeleteUser_login(User_login instance);
@@ -63,14 +66,6 @@ namespace WindowsFormsApplication3
 				base(connection, mappingSource)
 		{
 			OnCreated();
-		}
-		
-		public System.Data.Linq.Table<User_login> User_logins
-		{
-			get
-			{
-				return this.GetTable<User_login>();
-			}
 		}
 		
 		public System.Data.Linq.Table<Ad_Animal> Ad_Animals
@@ -128,138 +123,12 @@ namespace WindowsFormsApplication3
 				return this.GetTable<User_info>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.User_login")]
-	public partial class User_login : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private string _Login;
-		
-		private string _Password;
-		
-		private string _Contacts;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnLoginChanging(string value);
-    partial void OnLoginChanged();
-    partial void OnPasswordChanging(string value);
-    partial void OnPasswordChanged();
-    partial void OnContactsChanging(string value);
-    partial void OnContactsChanged();
-    #endregion
-		
-		public User_login()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
+		public System.Data.Linq.Table<User_login> User_logins
 		{
 			get
 			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Login", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Login
-		{
-			get
-			{
-				return this._Login;
-			}
-			set
-			{
-				if ((this._Login != value))
-				{
-					this.OnLoginChanging(value);
-					this.SendPropertyChanging();
-					this._Login = value;
-					this.SendPropertyChanged("Login");
-					this.OnLoginChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string Password
-		{
-			get
-			{
-				return this._Password;
-			}
-			set
-			{
-				if ((this._Password != value))
-				{
-					this.OnPasswordChanging(value);
-					this.SendPropertyChanging();
-					this._Password = value;
-					this.SendPropertyChanged("Password");
-					this.OnPasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Contacts", DbType="VarChar(MAX)")]
-		public string Contacts
-		{
-			get
-			{
-				return this._Contacts;
-			}
-			set
-			{
-				if ((this._Contacts != value))
-				{
-					this.OnContactsChanging(value);
-					this.SendPropertyChanging();
-					this._Contacts = value;
-					this.SendPropertyChanged("Contacts");
-					this.OnContactsChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+				return this.GetTable<User_login>();
 			}
 		}
 	}
@@ -427,8 +296,10 @@ namespace WindowsFormsApplication3
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.User_info")]
-	public partial class User_info
+	public partial class User_info : INotifyPropertyChanging, INotifyPropertyChanged
 	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _Id;
 		
@@ -450,11 +321,38 @@ namespace WindowsFormsApplication3
 		
 		private System.Data.Linq.Binary _Avatar;
 		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnAgeChanging(System.Nullable<int> value);
+    partial void OnAgeChanged();
+    partial void OnSexChanging(string value);
+    partial void OnSexChanged();
+    partial void OnLocalizationChanging(string value);
+    partial void OnLocalizationChanged();
+    partial void OnInterestChanging(string value);
+    partial void OnInterestChanged();
+    partial void OnBirthdateChanging(System.Nullable<System.DateTime> value);
+    partial void OnBirthdateChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnSurenameChanging(string value);
+    partial void OnSurenameChanged();
+    partial void OnCityChanging(string value);
+    partial void OnCityChanged();
+    partial void OnAvatarChanging(System.Data.Linq.Binary value);
+    partial void OnAvatarChanged();
+    #endregion
+		
 		public User_info()
 		{
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
 		public int Id
 		{
 			get
@@ -465,7 +363,11 @@ namespace WindowsFormsApplication3
 			{
 				if ((this._Id != value))
 				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
 					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
 				}
 			}
 		}
@@ -481,7 +383,11 @@ namespace WindowsFormsApplication3
 			{
 				if ((this._Age != value))
 				{
+					this.OnAgeChanging(value);
+					this.SendPropertyChanging();
 					this._Age = value;
+					this.SendPropertyChanged("Age");
+					this.OnAgeChanged();
 				}
 			}
 		}
@@ -497,7 +403,11 @@ namespace WindowsFormsApplication3
 			{
 				if ((this._Sex != value))
 				{
+					this.OnSexChanging(value);
+					this.SendPropertyChanging();
 					this._Sex = value;
+					this.SendPropertyChanged("Sex");
+					this.OnSexChanged();
 				}
 			}
 		}
@@ -513,7 +423,11 @@ namespace WindowsFormsApplication3
 			{
 				if ((this._Localization != value))
 				{
+					this.OnLocalizationChanging(value);
+					this.SendPropertyChanging();
 					this._Localization = value;
+					this.SendPropertyChanged("Localization");
+					this.OnLocalizationChanged();
 				}
 			}
 		}
@@ -529,7 +443,11 @@ namespace WindowsFormsApplication3
 			{
 				if ((this._Interest != value))
 				{
+					this.OnInterestChanging(value);
+					this.SendPropertyChanging();
 					this._Interest = value;
+					this.SendPropertyChanged("Interest");
+					this.OnInterestChanged();
 				}
 			}
 		}
@@ -545,7 +463,11 @@ namespace WindowsFormsApplication3
 			{
 				if ((this._Birthdate != value))
 				{
+					this.OnBirthdateChanging(value);
+					this.SendPropertyChanging();
 					this._Birthdate = value;
+					this.SendPropertyChanged("Birthdate");
+					this.OnBirthdateChanged();
 				}
 			}
 		}
@@ -561,7 +483,11 @@ namespace WindowsFormsApplication3
 			{
 				if ((this._Name != value))
 				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
 					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
 				}
 			}
 		}
@@ -577,7 +503,11 @@ namespace WindowsFormsApplication3
 			{
 				if ((this._Surename != value))
 				{
+					this.OnSurenameChanging(value);
+					this.SendPropertyChanging();
 					this._Surename = value;
+					this.SendPropertyChanged("Surename");
+					this.OnSurenameChanged();
 				}
 			}
 		}
@@ -593,7 +523,11 @@ namespace WindowsFormsApplication3
 			{
 				if ((this._City != value))
 				{
+					this.OnCityChanging(value);
+					this.SendPropertyChanging();
 					this._City = value;
+					this.SendPropertyChanged("City");
+					this.OnCityChanged();
 				}
 			}
 		}
@@ -609,8 +543,166 @@ namespace WindowsFormsApplication3
 			{
 				if ((this._Avatar != value))
 				{
+					this.OnAvatarChanging(value);
+					this.SendPropertyChanging();
 					this._Avatar = value;
+					this.SendPropertyChanged("Avatar");
+					this.OnAvatarChanged();
 				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.User_login")]
+	public partial class User_login : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Login;
+		
+		private string _Password;
+		
+		private string _Contacts;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnLoginChanging(string value);
+    partial void OnLoginChanged();
+    partial void OnPasswordChanging(string value);
+    partial void OnPasswordChanged();
+    partial void OnContactsChanging(string value);
+    partial void OnContactsChanged();
+    #endregion
+		
+		public User_login()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Login", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Login
+		{
+			get
+			{
+				return this._Login;
+			}
+			set
+			{
+				if ((this._Login != value))
+				{
+					this.OnLoginChanging(value);
+					this.SendPropertyChanging();
+					this._Login = value;
+					this.SendPropertyChanged("Login");
+					this.OnLoginChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this.OnPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Password = value;
+					this.SendPropertyChanged("Password");
+					this.OnPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Contacts", DbType="VarChar(MAX)")]
+		public string Contacts
+		{
+			get
+			{
+				return this._Contacts;
+			}
+			set
+			{
+				if ((this._Contacts != value))
+				{
+					this.OnContactsChanging(value);
+					this.SendPropertyChanging();
+					this._Contacts = value;
+					this.SendPropertyChanged("Contacts");
+					this.OnContactsChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}

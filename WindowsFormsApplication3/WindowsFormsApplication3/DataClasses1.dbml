@@ -1,14 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Communicator" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=PRZEMEK;Initial Catalog=Communicator;Integrated Security=True" SettingsObjectName="WindowsFormsApplication3.Properties.Settings" SettingsPropertyName="CommunicatorConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.User_login" Member="User_logins">
-    <Type Name="User_login">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Login" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Password" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="Contacts" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Association Name="User_login_User_info" Member="User_infos" ThisKey="Id" OtherKey="Id" Type="User_info" />
-    </Type>
-  </Table>
   <Table Name="dbo.Ad_Animals" Member="Ad_Animals">
     <Type Name="Ad_Animal">
       <Column Name="Number" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -41,7 +32,7 @@
   </Table>
   <Table Name="dbo.User_info" Member="User_infos">
     <Type Name="User_info">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Age" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Sex" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Column Name="Localization" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
@@ -51,7 +42,14 @@
       <Column Name="Surename" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="City" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Avatar" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="User_login_User_info" Member="User_login" ThisKey="Id" OtherKey="Id" Type="User_login" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.User_login" Member="User_logins">
+    <Type Name="User_login">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Login" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Contacts" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

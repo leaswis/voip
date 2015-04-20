@@ -13,6 +13,7 @@ namespace WindowsFormsApplication3
 {
     public partial class Rejestracja : Form
     {
+        Logic logic = new Logic();
         public Rejestracja()
         {
             InitializeComponent();
@@ -25,7 +26,11 @@ namespace WindowsFormsApplication3
 
         private void button2_Click(object sender, EventArgs e)
         {
+            UserInfo info = new UserInfo();
+            info.City = this.textBoxMiasto.Text;
+            info.Name = this.textBoxImie.Text;
 
+            logic.AddUserInfo(info);
         }
 
        // private Bitmap avatar;
@@ -40,6 +45,11 @@ namespace WindowsFormsApplication3
                 //pictureBoxAvatar.Image = Bitmap.FromFile(ofd.FileName);
             }
 
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
