@@ -29,8 +29,21 @@ namespace WindowsFormsApplication3
             UserInfo info = new UserInfo();
             info.City = this.textBoxMiasto.Text;
             info.Name = this.textBoxImie.Text;
+            info.Surname = this.textBoxNazwisko.Text;
+            //info.Email = this.textBoxEmail.Text;
+            if (radioButtonKobieta.Checked)
+            {
+                info.Sex = this.radioButtonKobieta.Text;
+            }
+            else { info.Sex = this.radioButtonMezczyzna.Text; }
+            //info.Age = this.textBoxWiek.Text; ----!!! zmienić na string
+
+            UserLogin login = new UserLogin();
+            login.UserLogin1 = this.textBoxLogin.Text;
+            login.UserPassword = this.textBoxHaslo.Text;
 
             logic.AddUserInfo(info);
+            //logic.AddUserInfo(login);
         }
 
        // private Bitmap avatar;
@@ -49,6 +62,11 @@ namespace WindowsFormsApplication3
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Rejestracja_Load(object sender, EventArgs e)
         {
 
         }
