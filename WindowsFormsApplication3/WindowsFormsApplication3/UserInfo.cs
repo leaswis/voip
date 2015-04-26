@@ -29,6 +29,15 @@ namespace WindowsFormsApplication3
             get { return sex; }
             set { sex = value; }
         }
+
+       /* string email;
+
+        public string Email
+        {
+            get { return email; }
+            set { email = value; }
+        }*/
+
         string localization;
 
         public string Localization

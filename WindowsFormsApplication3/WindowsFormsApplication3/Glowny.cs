@@ -33,7 +33,8 @@ namespace WindowsFormsApplication3
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-
+            Profil okno = new Profil();
+            okno.Show();
         }
 
         private void button1_Click_2(object sender, EventArgs e)
@@ -42,6 +43,11 @@ namespace WindowsFormsApplication3
         }
 
         private void userArchive_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Komunikator_Load(object sender, EventArgs e)
         {
 
         }

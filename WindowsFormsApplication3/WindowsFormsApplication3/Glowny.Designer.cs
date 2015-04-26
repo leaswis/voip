@@ -138,6 +138,7 @@
             this.Controls.Add(this.reklamaBox);
             this.Name = "Komunikator";
             this.Text = "Komunikator";
+            this.Load += new System.EventHandler(this.Komunikator_Load);
             ((System.ComponentModel.ISupportInitialize)(this.reklamaBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
