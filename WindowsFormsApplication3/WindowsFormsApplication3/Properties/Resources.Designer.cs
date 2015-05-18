@@ -73,6 +73,26 @@ namespace WindowsFormsApplication3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ads {
+            get {
+                object obj = ResourceManager.GetObject("ads", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap avek1 {
+            get {
+                object obj = ResourceManager.GetObject("avek1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap baner_3x1_megadrukarnia {
             get {
                 object obj = ResourceManager.GetObject("baner_3x1_megadrukarnia", resourceCulture);
@@ -153,9 +173,29 @@ namespace WindowsFormsApplication3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap rozmowa {
+            get {
+                object obj = ResourceManager.GetObject("rozmowa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Space_Wallpaper_HD_Desktop {
             get {
                 object obj = ResourceManager.GetObject("Space-Wallpaper-HD-Desktop", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tele {
+            get {
+                object obj = ResourceManager.GetObject("tele", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

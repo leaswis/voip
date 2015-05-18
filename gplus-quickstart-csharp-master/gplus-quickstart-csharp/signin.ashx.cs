@@ -39,6 +39,13 @@ using Google.Apis.Plus.v1;
 using Google.Apis.Plus.v1.Data;
 using Google.Apis.Services;
 using Google.Apis.Util;
+using Google.Apis.Util.Store;
+
+
+using Google.Apis.Analytics.v3;
+
+using System.Security.Cryptography.X509Certificates;
+
 
 namespace GPlusQuickstartCsharp
 {
@@ -66,9 +73,10 @@ namespace GPlusQuickstartCsharp
         // Configuration that you probably don't need to change.
         static public string APP_NAME = "Google+ C# Quickstart";
 
-        static public string[] SCOPES = { PlusService.Scope.PlusLogin };
+        //static public string[] SCOPES = { PlusService.Scope.PlusLogin };
         // Uncomment to retrieve email.
-        //static public string[] SCOPES = { PlusService.Scope.PlusLogin, PlusService.Scope.UserinfoEmail };
+        static public string[] SCOPES = { PlusService.Scope.PlusLogin, PlusService.Scope.UserinfoEmail,
+                                        PlusService.Scope.UserinfoProfile};
 
         // Stores token response info such as the access token and refresh token.
         private TokenResponse token;

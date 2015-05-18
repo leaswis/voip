@@ -39,7 +39,8 @@ namespace WindowsFormsApplication3
 
         private void button1_Click_2(object sender, EventArgs e)
         {
-
+            Phone okno = new Phone();
+            okno.Show();
         }
 
         private void userArchive_Click(object sender, EventArgs e)
@@ -50,6 +51,12 @@ namespace WindowsFormsApplication3
         private void Komunikator_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void messageButton_Click(object sender, EventArgs e)
+        {
+            MessageConv okno = new MessageConv();
+            okno.Show();
         }
     }
 }

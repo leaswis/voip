@@ -27,3 +27,10 @@ C:\Users\Przemek J\Desktop\voip\WindowsFormsApplication3\WindowsFormsApplication
 C:\Users\Przemek J\Desktop\voip\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.pdb
 C:\Users\Przemek J\Desktop\voip\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Facebook.dll
 C:\Users\Przemek J\Desktop\voip\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Facebook.xml
+C:\Users\Laura\Documents\GitHub\voip\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.csprojResolveAssemblyReference.cache
+C:\Users\Laura\Documents\GitHub\voip\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Komunikator.resources
+C:\Users\Laura\Documents\GitHub\voip\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Login.resources
+C:\Users\Laura\Documents\GitHub\voip\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Profil.resources
+C:\Users\Laura\Documents\GitHub\voip\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Properties.Resources.resources
+C:\Users\Laura\Documents\GitHub\voip\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Rejestracja.resources
+C:\Users\Laura\Documents\GitHub\voip\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.csproj.GenerateResource.Cache

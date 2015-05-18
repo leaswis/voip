@@ -53,7 +53,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Phone.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Phone.Designer.cs">
+      <DependentUpon>Phone.cs</DependentUpon>
+    </Compile>
     <Compile Include="Logic.cs" />
+    <Compile Include="MessageConv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageConv.Designer.cs">
+      <DependentUpon>MessageConv.cs</DependentUpon>
+    </Compile>
     <Compile Include="Profil.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,11 +97,17 @@
     <None Include="DataClasses1.dbml.layout">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </None>
+    <EmbeddedResource Include="Phone.resx">
+      <DependentUpon>Phone.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Glowny.resx">
       <DependentUpon>Glowny.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageConv.resx">
+      <DependentUpon>MessageConv.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Profil.resx">
       <DependentUpon>Profil.cs</DependentUpon>
@@ -158,6 +176,18 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tele.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rozmowa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\avek1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ads.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
