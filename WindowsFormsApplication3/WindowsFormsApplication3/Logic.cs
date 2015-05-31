@@ -43,7 +43,7 @@ namespace WindowsFormsApplication3
                 info.Localization = table.Single().Localization;
                 info.Name = table.Single().Name;
                 info.Sex = table.Single().Sex;
-                info.Surname = table.Single().Surename;
+                info.Surname = table.Single().Surname;
                 info.UserId = table.Single().Id;
 
 

@@ -1,0 +1,9 @@
+C:\Users\Laura\Documents\GitHub\voip\WindowsFormsApplication3\WindowsFormsApplication3\bin\Release\WindowsFormsApplication3.exe.config
+C:\Users\Laura\Documents\GitHub\voip\WindowsFormsApplication3\WindowsFormsApplication3\obj\Release\WindowsFormsApplication3.Phone.resources
+C:\Users\Laura\Documents\GitHub\voip\WindowsFormsApplication3\WindowsFormsApplication3\obj\Release\WindowsFormsApplication3.Komunikator.resources
+C:\Users\Laura\Documents\GitHub\voip\WindowsFormsApplication3\WindowsFormsApplication3\obj\Release\WindowsFormsApplication3.Login.resources
+C:\Users\Laura\Documents\GitHub\voip\WindowsFormsApplication3\WindowsFormsApplication3\obj\Release\WindowsFormsApplication3.MessageConv.resources
+C:\Users\Laura\Documents\GitHub\voip\WindowsFormsApplication3\WindowsFormsApplication3\obj\Release\WindowsFormsApplication3.Profil.resources
+C:\Users\Laura\Documents\GitHub\voip\WindowsFormsApplication3\WindowsFormsApplication3\obj\Release\WindowsFormsApplication3.Properties.Resources.resources
+C:\Users\Laura\Documents\GitHub\voip\WindowsFormsApplication3\WindowsFormsApplication3\obj\Release\WindowsFormsApplication3.Rejestracja.resources
+C:\Users\Laura\Documents\GitHub\voip\WindowsFormsApplication3\WindowsFormsApplication3\obj\Release\WindowsFormsApplication3.csproj.GenerateResource.Cache

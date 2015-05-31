@@ -1,0 +1,11 @@
+c:\users\laura\documents\visual studio 2012\Projects\Komunikator\Komunikator\bin\Debug\Komunikator.exe.config
+c:\users\laura\documents\visual studio 2012\Projects\Komunikator\Komunikator\bin\Debug\Komunikator.exe
+c:\users\laura\documents\visual studio 2012\Projects\Komunikator\Komunikator\bin\Debug\Komunikator.pdb
+c:\users\laura\documents\visual studio 2012\Projects\Komunikator\Komunikator\obj\Debug\Komunikator.csprojResolveAssemblyReference.cache
+c:\users\laura\documents\visual studio 2012\Projects\Komunikator\Komunikator\obj\Debug\Komunikator.Komunikator.resources
+c:\users\laura\documents\visual studio 2012\Projects\Komunikator\Komunikator\obj\Debug\Komunikator.Login.resources
+c:\users\laura\documents\visual studio 2012\Projects\Komunikator\Komunikator\obj\Debug\Komunikator.Properties.Resources.resources
+c:\users\laura\documents\visual studio 2012\Projects\Komunikator\Komunikator\obj\Debug\Komunikator.csproj.GenerateResource.Cache
+c:\users\laura\documents\visual studio 2012\Projects\Komunikator\Komunikator\obj\Debug\Komunikator.exe
+c:\users\laura\documents\visual studio 2012\Projects\Komunikator\Komunikator\obj\Debug\Komunikator.pdb
+c:\users\laura\documents\visual studio 2012\Projects\Komunikator\Komunikator\obj\Debug\Komunikator.Rejestracja.resources

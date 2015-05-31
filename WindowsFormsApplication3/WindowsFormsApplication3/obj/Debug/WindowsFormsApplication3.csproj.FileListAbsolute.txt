@@ -34,3 +34,5 @@ C:\Users\Laura\Documents\GitHub\voip\WindowsFormsApplication3\WindowsFormsApplic
 C:\Users\Laura\Documents\GitHub\voip\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Properties.Resources.resources
 C:\Users\Laura\Documents\GitHub\voip\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Rejestracja.resources
 C:\Users\Laura\Documents\GitHub\voip\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.csproj.GenerateResource.Cache
+C:\Users\Laura\Documents\GitHub\voip\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Phone.resources
+C:\Users\Laura\Documents\GitHub\voip\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.MessageConv.resources
