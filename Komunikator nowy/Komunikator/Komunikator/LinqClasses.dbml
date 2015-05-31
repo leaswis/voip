@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Communicator" Class="LinqClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LAURA-KOMPUTER\SQLEXPRESS;Initial Catalog=Communicator;Integrated Security=True" SettingsObjectName="Komunikator.Properties.Settings" SettingsPropertyName="CommunicatorConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.User_info" Member="User_infos">
+    <Type Name="User_info">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Sex" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Localization" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Birthdate" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Surname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Avatar" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="isBusy" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="isConnected" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="interestID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="User_info_Interest" Member="Interests" ThisKey="Id" OtherKey="userID" Type="Interest" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Interests" Member="Interests">
+    <Type Name="Interest">
+      <Column Name="Entertaiment" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Fashion" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Animals" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Sport" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Cuisine" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Games" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Technology" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="userID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="Interest_Image" Member="Images" ThisKey="Id" OtherKey="interestID" Type="Image" />
+      <Association Name="User_info_Interest" Member="User_info" ThisKey="userID" OtherKey="Id" Type="User_info" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Images" Member="Images">
+    <Type Name="Image">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="image" Member="image1" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="interestID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Interest_Image" Member="Interest" ThisKey="interestID" OtherKey="Id" Type="Interest" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Contacts" Member="Contacts">
+    <Type Name="Contact">
+      <Column Name="hostID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="contactID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
