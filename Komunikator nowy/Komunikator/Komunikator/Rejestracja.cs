@@ -34,36 +34,49 @@ namespace Komunikator
 
         private void buttonRegister_Click(object sender, EventArgs e)
         {
-            User_info info = new User_info();
+            Zainteresowania okno = new Zainteresowania();
 
-            
-            info.Name = this.textBoxName.Text;
-            info.Surname = this.textBoxSurname.Text;
-            info.City = this.textBoxCity.Text;
-            info.Email = this.textBoxEmail.Text;
-            info.Password = this.textBoxPassword.Text;
-            if (radioButtonFemale.Checked)
+            try
             {
-                info.Sex = this.radioButtonFemale.Text;
+                User_info info = new User_info();
+
+
+                info.Name = this.textBoxName.Text;
+                info.Surname = this.textBoxSurname.Text;
+                info.City = this.textBoxCity.Text;
+                info.Email = this.textBoxEmail.Text;
+                info.Password = this.textBoxPassword.Text;
+                if (radioButtonFemale.Checked)
+                {
+                    info.Sex = this.radioButtonFemale.Text;
+                }
+                else if (radioButtonMale.Checked)
+                {
+                    info.Sex = this.radioButtonMale.Text;
+                }
+                else
+                {
+                    info.Sex = "inny";
+                }
+               //info.interestID = 
+
+                //przy rejestracji aut. na false
+                info.isBusy = false;
+                info.isConnected = false;
+
+
+                logic.AddUserInfo(info);
             }
-            if (radioButtonMale.Checked)
+            catch (Exception exc)
             {
-                info.Sex = this.radioButtonMale.Text;
+                throw exc;
             }
-            else
-            {
-                info.Sex = this.radioButtonUndefined.Text;
-            }
-           
-            //na próbę
-            info.interestID = 1;
 
-            //przy rejestracji aut. na false
-            info.isBusy = false;
-            info.isConnected = false;
+            MessageBox.Show("zarejestrowano pomyślnie");
+
+            //okno.Show();
 
 
-            logic.AddUserInfo(info);
 
         }
     }

@@ -3,7 +3,7 @@
   <Table Name="dbo.User_info" Member="User_infos">
     <Type Name="User_info">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Sex" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Sex" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="Localization" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Birthdate" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
@@ -18,21 +18,6 @@
       <Association Name="User_info_Interest" Member="Interests" ThisKey="Id" OtherKey="userID" Type="Interest" />
     </Type>
   </Table>
-  <Table Name="dbo.Interests" Member="Interests">
-    <Type Name="Interest">
-      <Column Name="Entertaiment" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Fashion" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Animals" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Sport" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Cuisine" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Games" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Technology" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="userID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Association Name="Interest_Image" Member="Images" ThisKey="Id" OtherKey="interestID" Type="Image" />
-      <Association Name="User_info_Interest" Member="User_info" ThisKey="userID" OtherKey="Id" Type="User_info" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Images" Member="Images">
     <Type Name="Image">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -45,6 +30,15 @@
     <Type Name="Contact">
       <Column Name="hostID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="contactID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Interests" Member="Interests">
+    <Type Name="Interest">
+      <Column Name="userID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Interest" Member="Interest1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Interest_Image" Member="Images" ThisKey="Id" OtherKey="interestID" Type="Image" />
+      <Association Name="User_info_Interest" Member="User_info" ThisKey="userID" OtherKey="Id" Type="User_info" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

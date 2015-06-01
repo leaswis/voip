@@ -52,13 +52,6 @@
             this.pictureBoxAvatarReg = new System.Windows.Forms.PictureBox();
             this.buttonAddAvatar = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.checkBoxEntertaiment = new System.Windows.Forms.CheckBox();
-            this.checkBoxFashion = new System.Windows.Forms.CheckBox();
-            this.checkBoxAnimals = new System.Windows.Forms.CheckBox();
-            this.checkBoxSport = new System.Windows.Forms.CheckBox();
-            this.checkBoxCuisine = new System.Windows.Forms.CheckBox();
-            this.checkBoxGames = new System.Windows.Forms.CheckBox();
-            this.checkBoxTechnology = new System.Windows.Forms.CheckBox();
             this.buttonRegister = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAvatarReg)).BeginInit();
@@ -385,86 +378,8 @@
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label10.Location = new System.Drawing.Point(30, 335);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(155, 17);
+            this.label10.Size = new System.Drawing.Size(0, 17);
             this.label10.TabIndex = 21;
-            this.label10.Text = "ZAINTERESOWANIA";
-            // 
-            // checkBoxEntertaiment
-            // 
-            this.checkBoxEntertaiment.AutoSize = true;
-            this.checkBoxEntertaiment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBoxEntertaiment.Location = new System.Drawing.Point(36, 365);
-            this.checkBoxEntertaiment.Name = "checkBoxEntertaiment";
-            this.checkBoxEntertaiment.Size = new System.Drawing.Size(86, 20);
-            this.checkBoxEntertaiment.TabIndex = 22;
-            this.checkBoxEntertaiment.Text = "Rozrywka";
-            this.checkBoxEntertaiment.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxFashion
-            // 
-            this.checkBoxFashion.AutoSize = true;
-            this.checkBoxFashion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBoxFashion.Location = new System.Drawing.Point(36, 391);
-            this.checkBoxFashion.Name = "checkBoxFashion";
-            this.checkBoxFashion.Size = new System.Drawing.Size(62, 20);
-            this.checkBoxFashion.TabIndex = 23;
-            this.checkBoxFashion.Text = "Moda";
-            this.checkBoxFashion.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxAnimals
-            // 
-            this.checkBoxAnimals.AutoSize = true;
-            this.checkBoxAnimals.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBoxAnimals.Location = new System.Drawing.Point(378, 365);
-            this.checkBoxAnimals.Name = "checkBoxAnimals";
-            this.checkBoxAnimals.Size = new System.Drawing.Size(84, 20);
-            this.checkBoxAnimals.TabIndex = 24;
-            this.checkBoxAnimals.Text = "Zwierzęta";
-            this.checkBoxAnimals.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxSport
-            // 
-            this.checkBoxSport.AutoSize = true;
-            this.checkBoxSport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBoxSport.Location = new System.Drawing.Point(159, 365);
-            this.checkBoxSport.Name = "checkBoxSport";
-            this.checkBoxSport.Size = new System.Drawing.Size(59, 20);
-            this.checkBoxSport.TabIndex = 25;
-            this.checkBoxSport.Text = "Sport";
-            this.checkBoxSport.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxCuisine
-            // 
-            this.checkBoxCuisine.AutoSize = true;
-            this.checkBoxCuisine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBoxCuisine.Location = new System.Drawing.Point(159, 391);
-            this.checkBoxCuisine.Name = "checkBoxCuisine";
-            this.checkBoxCuisine.Size = new System.Drawing.Size(74, 20);
-            this.checkBoxCuisine.TabIndex = 26;
-            this.checkBoxCuisine.Text = "Kuchnia";
-            this.checkBoxCuisine.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxGames
-            // 
-            this.checkBoxGames.AutoSize = true;
-            this.checkBoxGames.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBoxGames.Location = new System.Drawing.Point(256, 391);
-            this.checkBoxGames.Name = "checkBoxGames";
-            this.checkBoxGames.Size = new System.Drawing.Size(48, 20);
-            this.checkBoxGames.TabIndex = 27;
-            this.checkBoxGames.Text = "Gry";
-            this.checkBoxGames.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxTechnology
-            // 
-            this.checkBoxTechnology.AutoSize = true;
-            this.checkBoxTechnology.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBoxTechnology.Location = new System.Drawing.Point(256, 365);
-            this.checkBoxTechnology.Name = "checkBoxTechnology";
-            this.checkBoxTechnology.Size = new System.Drawing.Size(103, 20);
-            this.checkBoxTechnology.TabIndex = 28;
-            this.checkBoxTechnology.Text = "Technologia";
-            this.checkBoxTechnology.UseVisualStyleBackColor = true;
             // 
             // buttonRegister
             // 
@@ -474,7 +389,7 @@
             this.buttonRegister.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.buttonRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonRegister.Location = new System.Drawing.Point(409, 438);
+            this.buttonRegister.Location = new System.Drawing.Point(395, 327);
             this.buttonRegister.Name = "buttonRegister";
             this.buttonRegister.Size = new System.Drawing.Size(111, 30);
             this.buttonRegister.TabIndex = 29;
@@ -487,15 +402,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(547, 480);
+            this.ClientSize = new System.Drawing.Size(533, 376);
             this.Controls.Add(this.buttonRegister);
-            this.Controls.Add(this.checkBoxTechnology);
-            this.Controls.Add(this.checkBoxGames);
-            this.Controls.Add(this.checkBoxCuisine);
-            this.Controls.Add(this.checkBoxSport);
-            this.Controls.Add(this.checkBoxAnimals);
-            this.Controls.Add(this.checkBoxFashion);
-            this.Controls.Add(this.checkBoxEntertaiment);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.buttonAddAvatar);
             this.Controls.Add(this.pictureBoxAvatarReg);
@@ -552,13 +460,6 @@
         private System.Windows.Forms.PictureBox pictureBoxAvatarReg;
         private System.Windows.Forms.Button buttonAddAvatar;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.CheckBox checkBoxEntertaiment;
-        private System.Windows.Forms.CheckBox checkBoxFashion;
-        private System.Windows.Forms.CheckBox checkBoxAnimals;
-        private System.Windows.Forms.CheckBox checkBoxSport;
-        private System.Windows.Forms.CheckBox checkBoxCuisine;
-        private System.Windows.Forms.CheckBox checkBoxGames;
-        private System.Windows.Forms.CheckBox checkBoxTechnology;
         private System.Windows.Forms.Button buttonRegister;
     }
 }

@@ -33,12 +33,12 @@ namespace Komunikator
     partial void InsertUser_info(User_info instance);
     partial void UpdateUser_info(User_info instance);
     partial void DeleteUser_info(User_info instance);
-    partial void InsertInterest(Interest instance);
-    partial void UpdateInterest(Interest instance);
-    partial void DeleteInterest(Interest instance);
     partial void InsertImage(Image instance);
     partial void UpdateImage(Image instance);
     partial void DeleteImage(Image instance);
+    partial void InsertInterest(Interest instance);
+    partial void UpdateInterest(Interest instance);
+    partial void DeleteInterest(Interest instance);
     #endregion
 		
 		public LinqClassesDataContext() : 
@@ -79,14 +79,6 @@ namespace Komunikator
 			}
 		}
 		
-		public System.Data.Linq.Table<Interest> Interests
-		{
-			get
-			{
-				return this.GetTable<Interest>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Image> Images
 		{
 			get
@@ -100,6 +92,14 @@ namespace Komunikator
 			get
 			{
 				return this.GetTable<Contact>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Interest> Interests
+		{
+			get
+			{
+				return this.GetTable<Interest>();
 			}
 		}
 	}
@@ -196,7 +196,7 @@ namespace Komunikator
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sex", DbType="VarChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sex", DbType="VarChar(20)")]
 		public string Sex
 		{
 			get
@@ -482,329 +482,6 @@ namespace Komunikator
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Interests")]
-	public partial class Interest : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Nullable<bool> _Entertaiment;
-		
-		private System.Nullable<bool> _Fashion;
-		
-		private System.Nullable<bool> _Animals;
-		
-		private System.Nullable<bool> _Sport;
-		
-		private System.Nullable<bool> _Cuisine;
-		
-		private System.Nullable<bool> _Games;
-		
-		private System.Nullable<bool> _Technology;
-		
-		private int _userID;
-		
-		private int _Id;
-		
-		private EntitySet<Image> _Images;
-		
-		private EntityRef<User_info> _User_info;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnEntertaimentChanging(System.Nullable<bool> value);
-    partial void OnEntertaimentChanged();
-    partial void OnFashionChanging(System.Nullable<bool> value);
-    partial void OnFashionChanged();
-    partial void OnAnimalsChanging(System.Nullable<bool> value);
-    partial void OnAnimalsChanged();
-    partial void OnSportChanging(System.Nullable<bool> value);
-    partial void OnSportChanged();
-    partial void OnCuisineChanging(System.Nullable<bool> value);
-    partial void OnCuisineChanged();
-    partial void OnGamesChanging(System.Nullable<bool> value);
-    partial void OnGamesChanged();
-    partial void OnTechnologyChanging(System.Nullable<bool> value);
-    partial void OnTechnologyChanged();
-    partial void OnuserIDChanging(int value);
-    partial void OnuserIDChanged();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    #endregion
-		
-		public Interest()
-		{
-			this._Images = new EntitySet<Image>(new Action<Image>(this.attach_Images), new Action<Image>(this.detach_Images));
-			this._User_info = default(EntityRef<User_info>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Entertaiment", DbType="Bit")]
-		public System.Nullable<bool> Entertaiment
-		{
-			get
-			{
-				return this._Entertaiment;
-			}
-			set
-			{
-				if ((this._Entertaiment != value))
-				{
-					this.OnEntertaimentChanging(value);
-					this.SendPropertyChanging();
-					this._Entertaiment = value;
-					this.SendPropertyChanged("Entertaiment");
-					this.OnEntertaimentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fashion", DbType="Bit")]
-		public System.Nullable<bool> Fashion
-		{
-			get
-			{
-				return this._Fashion;
-			}
-			set
-			{
-				if ((this._Fashion != value))
-				{
-					this.OnFashionChanging(value);
-					this.SendPropertyChanging();
-					this._Fashion = value;
-					this.SendPropertyChanged("Fashion");
-					this.OnFashionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Animals", DbType="Bit")]
-		public System.Nullable<bool> Animals
-		{
-			get
-			{
-				return this._Animals;
-			}
-			set
-			{
-				if ((this._Animals != value))
-				{
-					this.OnAnimalsChanging(value);
-					this.SendPropertyChanging();
-					this._Animals = value;
-					this.SendPropertyChanged("Animals");
-					this.OnAnimalsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sport", DbType="Bit")]
-		public System.Nullable<bool> Sport
-		{
-			get
-			{
-				return this._Sport;
-			}
-			set
-			{
-				if ((this._Sport != value))
-				{
-					this.OnSportChanging(value);
-					this.SendPropertyChanging();
-					this._Sport = value;
-					this.SendPropertyChanged("Sport");
-					this.OnSportChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cuisine", DbType="Bit")]
-		public System.Nullable<bool> Cuisine
-		{
-			get
-			{
-				return this._Cuisine;
-			}
-			set
-			{
-				if ((this._Cuisine != value))
-				{
-					this.OnCuisineChanging(value);
-					this.SendPropertyChanging();
-					this._Cuisine = value;
-					this.SendPropertyChanged("Cuisine");
-					this.OnCuisineChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Games", DbType="Bit")]
-		public System.Nullable<bool> Games
-		{
-			get
-			{
-				return this._Games;
-			}
-			set
-			{
-				if ((this._Games != value))
-				{
-					this.OnGamesChanging(value);
-					this.SendPropertyChanging();
-					this._Games = value;
-					this.SendPropertyChanged("Games");
-					this.OnGamesChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Technology", DbType="Bit")]
-		public System.Nullable<bool> Technology
-		{
-			get
-			{
-				return this._Technology;
-			}
-			set
-			{
-				if ((this._Technology != value))
-				{
-					this.OnTechnologyChanging(value);
-					this.SendPropertyChanging();
-					this._Technology = value;
-					this.SendPropertyChanged("Technology");
-					this.OnTechnologyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userID", DbType="Int NOT NULL")]
-		public int userID
-		{
-			get
-			{
-				return this._userID;
-			}
-			set
-			{
-				if ((this._userID != value))
-				{
-					if (this._User_info.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnuserIDChanging(value);
-					this.SendPropertyChanging();
-					this._userID = value;
-					this.SendPropertyChanged("userID");
-					this.OnuserIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Interest_Image", Storage="_Images", ThisKey="Id", OtherKey="interestID")]
-		public EntitySet<Image> Images
-		{
-			get
-			{
-				return this._Images;
-			}
-			set
-			{
-				this._Images.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_info_Interest", Storage="_User_info", ThisKey="userID", OtherKey="Id", IsForeignKey=true)]
-		public User_info User_info
-		{
-			get
-			{
-				return this._User_info.Entity;
-			}
-			set
-			{
-				User_info previousValue = this._User_info.Entity;
-				if (((previousValue != value) 
-							|| (this._User_info.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._User_info.Entity = null;
-						previousValue.Interests.Remove(this);
-					}
-					this._User_info.Entity = value;
-					if ((value != null))
-					{
-						value.Interests.Add(this);
-						this._userID = value.Id;
-					}
-					else
-					{
-						this._userID = default(int);
-					}
-					this.SendPropertyChanged("User_info");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Images(Image entity)
-		{
-			this.SendPropertyChanging();
-			entity.Interest = this;
-		}
-		
-		private void detach_Images(Image entity)
-		{
-			this.SendPropertyChanging();
-			entity.Interest = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Images")]
 	public partial class Image : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -998,6 +675,185 @@ namespace Komunikator
 					this._contactID = value;
 				}
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Interests")]
+	public partial class Interest : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<int> _userID;
+		
+		private int _Id;
+		
+		private string _Interest1;
+		
+		private EntitySet<Image> _Images;
+		
+		private EntityRef<User_info> _User_info;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnuserIDChanging(System.Nullable<int> value);
+    partial void OnuserIDChanged();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnInterest1Changing(string value);
+    partial void OnInterest1Changed();
+    #endregion
+		
+		public Interest()
+		{
+			this._Images = new EntitySet<Image>(new Action<Image>(this.attach_Images), new Action<Image>(this.detach_Images));
+			this._User_info = default(EntityRef<User_info>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userID", DbType="Int")]
+		public System.Nullable<int> userID
+		{
+			get
+			{
+				return this._userID;
+			}
+			set
+			{
+				if ((this._userID != value))
+				{
+					if (this._User_info.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnuserIDChanging(value);
+					this.SendPropertyChanging();
+					this._userID = value;
+					this.SendPropertyChanged("userID");
+					this.OnuserIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Interest", Storage="_Interest1", DbType="VarChar(50)")]
+		public string Interest1
+		{
+			get
+			{
+				return this._Interest1;
+			}
+			set
+			{
+				if ((this._Interest1 != value))
+				{
+					this.OnInterest1Changing(value);
+					this.SendPropertyChanging();
+					this._Interest1 = value;
+					this.SendPropertyChanged("Interest1");
+					this.OnInterest1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Interest_Image", Storage="_Images", ThisKey="Id", OtherKey="interestID")]
+		public EntitySet<Image> Images
+		{
+			get
+			{
+				return this._Images;
+			}
+			set
+			{
+				this._Images.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_info_Interest", Storage="_User_info", ThisKey="userID", OtherKey="Id", IsForeignKey=true)]
+		public User_info User_info
+		{
+			get
+			{
+				return this._User_info.Entity;
+			}
+			set
+			{
+				User_info previousValue = this._User_info.Entity;
+				if (((previousValue != value) 
+							|| (this._User_info.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._User_info.Entity = null;
+						previousValue.Interests.Remove(this);
+					}
+					this._User_info.Entity = value;
+					if ((value != null))
+					{
+						value.Interests.Add(this);
+						this._userID = value.Id;
+					}
+					else
+					{
+						this._userID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("User_info");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Images(Image entity)
+		{
+			this.SendPropertyChanging();
+			entity.Interest = this;
+		}
+		
+		private void detach_Images(Image entity)
+		{
+			this.SendPropertyChanging();
+			entity.Interest = null;
 		}
 	}
 }
