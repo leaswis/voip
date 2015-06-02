@@ -1,9 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Communicator" Class="LinqClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=LAURA-KOMPUTER\SQLEXPRESS;Initial Catalog=Communicator;Integrated Security=True" SettingsObjectName="Komunikator.Properties.Settings" SettingsPropertyName="CommunicatorConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Contacts" Member="Contacts">
+    <Type Name="Contact">
+      <Column Name="hostID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="contactID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Images" Member="Images">
+    <Type Name="Image">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="image" Member="image1" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Image_InterestImage" Member="InterestImages" ThisKey="Id" OtherKey="imageID" Type="InterestImage" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Interests" Member="Interests">
+    <Type Name="Interest">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Interest" Member="Interest1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Interest_UserInterest" Member="UserInterests" ThisKey="Id" OtherKey="interestID" Type="UserInterest" />
+      <Association Name="Interest_InterestImage" Member="InterestImages" ThisKey="Id" OtherKey="interestID" Type="InterestImage" />
+    </Type>
+  </Table>
   <Table Name="dbo.User_info" Member="User_infos">
     <Type Name="User_info">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Sex" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Sex" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Column Name="Localization" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Birthdate" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
@@ -14,31 +35,25 @@
       <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="isBusy" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="isConnected" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="User_info_UserInterest" Member="UserInterests" ThisKey="Id" OtherKey="userID" Type="UserInterest" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserInterest" Member="UserInterests">
+    <Type Name="UserInterest">
       <Column Name="interestID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="User_info_Interest" Member="Interests" ThisKey="Id" OtherKey="userID" Type="Interest" />
+      <Column Name="userID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="Interest_UserInterest" Member="Interest" ThisKey="interestID" OtherKey="Id" Type="Interest" IsForeignKey="true" />
+      <Association Name="User_info_UserInterest" Member="User_info" ThisKey="userID" OtherKey="Id" Type="User_info" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Images" Member="Images">
-    <Type Name="Image">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="image" Member="image1" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+  <Table Name="dbo.InterestImage" Member="InterestImages">
+    <Type Name="InterestImage">
       <Column Name="interestID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Interest_Image" Member="Interest" ThisKey="interestID" OtherKey="Id" Type="Interest" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Contacts" Member="Contacts">
-    <Type Name="Contact">
-      <Column Name="hostID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="contactID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Interests" Member="Interests">
-    <Type Name="Interest">
-      <Column Name="userID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="imageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Interest" Member="Interest1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="Interest_Image" Member="Images" ThisKey="Id" OtherKey="interestID" Type="Image" />
-      <Association Name="User_info_Interest" Member="User_info" ThisKey="userID" OtherKey="Id" Type="User_info" IsForeignKey="true" />
+      <Association Name="Image_InterestImage" Member="Image" ThisKey="imageID" OtherKey="Id" Type="Image" IsForeignKey="true" />
+      <Association Name="Interest_InterestImage" Member="Interest" ThisKey="interestID" OtherKey="Id" Type="Interest" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

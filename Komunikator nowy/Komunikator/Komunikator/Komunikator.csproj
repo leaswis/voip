@@ -71,18 +71,9 @@
     <Compile Include="Rejestracja.Designer.cs">
       <DependentUpon>Rejestracja.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usser_info.cs" />
-    <Compile Include="Zainteresowania.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Zainteresowania.Designer.cs">
-      <DependentUpon>Zainteresowania.cs</DependentUpon>
-    </Compile>
+    <Compile Include="User_info.cs" />
     <EmbeddedResource Include="Komunikator.resx">
       <DependentUpon>Komunikator.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Zainteresowania.resx">
-      <DependentUpon>Zainteresowania.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="LinqClasses.dbml.layout">
       <DependentUpon>LinqClasses.dbml</DependentUpon>

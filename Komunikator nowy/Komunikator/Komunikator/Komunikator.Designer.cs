@@ -69,6 +69,8 @@
             // 
             this.voipButton.BackgroundImage = global::Komunikator.Properties.Resources.tele;
             this.voipButton.FlatAppearance.BorderSize = 0;
+            this.voipButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.voipButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.voipButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.voipButton.Location = new System.Drawing.Point(158, 15);
             this.voipButton.Name = "voipButton";

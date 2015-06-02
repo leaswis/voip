@@ -8,13 +8,13 @@ namespace Komunikator
 {
     class Logic
     {
-        public void LoadUserInfo(User_info info, int id)
+        public void LoadUserInfo(User_info info, string email)
         {
             using (var dbContext = new LinqClassesDataContext())
             {
 
                 var table = from t in dbContext.User_infos
-                            where t.Id == id
+                            where t.Email == email
                             select t;
 
                 info.Id = table.Single().Id;
@@ -31,7 +31,7 @@ namespace Komunikator
                 info.isConnected = table.Single().isConnected;
 
                 //do rejes.
-                info.interestID = table.Single().interestID;
+                //info.interestID = table.Single().interestID;
                
 
 
@@ -58,7 +58,7 @@ namespace Komunikator
             temp.isConnected = info.isConnected;
 
             //do rejs.
-            temp.interestID = info.interestID;
+            //temp.interestID = info.interestID;
 
             using (var db = new LinqClassesDataContext())
             {
@@ -68,5 +68,47 @@ namespace Komunikator
                 db.SubmitChanges();
             }
         }
+
+       /* public void AddInterest(User_info info, List<int> interestid)
+        {
+            UserInterest u = new UserInterest();
+
+
+            foreach (int x in interestid)
+            {
+                using (var dbContext = new LinqClassesDataContext())
+                {
+
+                    u.interestID = x;
+                    u.userID = info.Id;
+
+                    dbContext.UserInterests.InsertOnSubmit(u);
+                    dbContext.SubmitChanges();
+                }
+            }
+
+        }*/
+
+
+        public void AddInterest(User_info info, int interestid)
+        {
+            UserInterest u = new UserInterest();
+
+
+             using (var dbContext = new LinqClassesDataContext())
+                {
+
+                    u.interestID = interestid;
+                    u.userID = info.Id;
+
+                    dbContext.UserInterests.InsertOnSubmit(u);
+                    dbContext.SubmitChanges();
+                }
+            
+
+        }
+       
+            
+        }
     }
-}
+

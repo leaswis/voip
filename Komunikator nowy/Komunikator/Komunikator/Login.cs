@@ -12,6 +12,7 @@ namespace Komunikator
 {
     public partial class Login : Form
     {
+        Logic logic = new Logic();
         public Login()
         {
             InitializeComponent();
@@ -34,7 +35,27 @@ namespace Komunikator
         private void LoginButton_Click(object sender, EventArgs e)
         {
             Komunikator okno = new Komunikator();
-            okno.Show();
+            try
+            {
+                User_info temp = new User_info();
+                temp.Email = this.textBoxEmail2.Text;
+                temp.Password = this.textBoxHaslo.Text;
+
+                User_info userLogin = new User_info();
+                logic.LoadUserInfo(userLogin, temp.Email);
+                if (userLogin.Password == temp.Password)
+                {
+                    okno.Show();
+                   // MessageBox.Show("Zalogowano");
+                }
+            }
+            catch (Exception exc)
+            {
+                throw exc;
+            }
+
+            /*Komunikator okno = new Komunikator();
+            okno.Show();*/
         }
     }
 }
