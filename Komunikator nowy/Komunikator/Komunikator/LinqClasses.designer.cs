@@ -30,9 +30,12 @@ namespace Komunikator
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertImage(Image instance);
-    partial void UpdateImage(Image instance);
-    partial void DeleteImage(Image instance);
+    partial void InsertImageAd(ImageAd instance);
+    partial void UpdateImageAd(ImageAd instance);
+    partial void DeleteImageAd(ImageAd instance);
+    partial void InsertInterestImage(InterestImage instance);
+    partial void UpdateInterestImage(InterestImage instance);
+    partial void DeleteInterestImage(InterestImage instance);
     partial void InsertInterest(Interest instance);
     partial void UpdateInterest(Interest instance);
     partial void DeleteInterest(Interest instance);
@@ -42,9 +45,6 @@ namespace Komunikator
     partial void InsertUserInterest(UserInterest instance);
     partial void UpdateUserInterest(UserInterest instance);
     partial void DeleteUserInterest(UserInterest instance);
-    partial void InsertInterestImage(InterestImage instance);
-    partial void UpdateInterestImage(InterestImage instance);
-    partial void DeleteInterestImage(InterestImage instance);
     #endregion
 		
 		public LinqClassesDataContext() : 
@@ -85,11 +85,19 @@ namespace Komunikator
 			}
 		}
 		
-		public System.Data.Linq.Table<Image> Images
+		public System.Data.Linq.Table<ImageAd> ImageAds
 		{
 			get
 			{
-				return this.GetTable<Image>();
+				return this.GetTable<ImageAd>();
+			}
+		}
+		
+		public System.Data.Linq.Table<InterestImage> InterestImages
+		{
+			get
+			{
+				return this.GetTable<InterestImage>();
 			}
 		}
 		
@@ -114,14 +122,6 @@ namespace Komunikator
 			get
 			{
 				return this.GetTable<UserInterest>();
-			}
-		}
-		
-		public System.Data.Linq.Table<InterestImage> InterestImages
-		{
-			get
-			{
-				return this.GetTable<InterestImage>();
 			}
 		}
 	}
@@ -171,15 +171,17 @@ namespace Komunikator
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Images")]
-	public partial class Image : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ImageAds")]
+	public partial class ImageAd : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _Id;
 		
-		private System.Data.Linq.Binary _image1;
+		private System.Data.Linq.Binary _image;
+		
+		private string _imageName;
 		
 		private EntitySet<InterestImage> _InterestImages;
 		
@@ -189,11 +191,13 @@ namespace Komunikator
     partial void OnCreated();
     partial void OnIdChanging(int value);
     partial void OnIdChanged();
-    partial void Onimage1Changing(System.Data.Linq.Binary value);
-    partial void Onimage1Changed();
+    partial void OnimageChanging(System.Data.Linq.Binary value);
+    partial void OnimageChanged();
+    partial void OnimageNameChanging(string value);
+    partial void OnimageNameChanged();
     #endregion
 		
-		public Image()
+		public ImageAd()
 		{
 			this._InterestImages = new EntitySet<InterestImage>(new Action<InterestImage>(this.attach_InterestImages), new Action<InterestImage>(this.detach_InterestImages));
 			OnCreated();
@@ -219,27 +223,47 @@ namespace Komunikator
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="image", Storage="_image1", DbType="Image NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary image1
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="Image NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary image
 		{
 			get
 			{
-				return this._image1;
+				return this._image;
 			}
 			set
 			{
-				if ((this._image1 != value))
+				if ((this._image != value))
 				{
-					this.Onimage1Changing(value);
+					this.OnimageChanging(value);
 					this.SendPropertyChanging();
-					this._image1 = value;
-					this.SendPropertyChanged("image1");
-					this.Onimage1Changed();
+					this._image = value;
+					this.SendPropertyChanged("image");
+					this.OnimageChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Image_InterestImage", Storage="_InterestImages", ThisKey="Id", OtherKey="imageID")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_imageName", DbType="VarChar(50)")]
+		public string imageName
+		{
+			get
+			{
+				return this._imageName;
+			}
+			set
+			{
+				if ((this._imageName != value))
+				{
+					this.OnimageNameChanging(value);
+					this.SendPropertyChanging();
+					this._imageName = value;
+					this.SendPropertyChanged("imageName");
+					this.OnimageNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ImageAd_InterestImage", Storage="_InterestImages", ThisKey="Id", OtherKey="imageID")]
 		public EntitySet<InterestImage> InterestImages
 		{
 			get
@@ -275,13 +299,205 @@ namespace Komunikator
 		private void attach_InterestImages(InterestImage entity)
 		{
 			this.SendPropertyChanging();
-			entity.Image = this;
+			entity.ImageAd = this;
 		}
 		
 		private void detach_InterestImages(InterestImage entity)
 		{
 			this.SendPropertyChanging();
-			entity.Image = null;
+			entity.ImageAd = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.InterestImage")]
+	public partial class InterestImage : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _interestID;
+		
+		private int _imageID;
+		
+		private int _Id;
+		
+		private EntityRef<ImageAd> _ImageAd;
+		
+		private EntityRef<Interest> _Interest;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OninterestIDChanging(int value);
+    partial void OninterestIDChanged();
+    partial void OnimageIDChanging(int value);
+    partial void OnimageIDChanged();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    #endregion
+		
+		public InterestImage()
+		{
+			this._ImageAd = default(EntityRef<ImageAd>);
+			this._Interest = default(EntityRef<Interest>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_interestID", DbType="Int NOT NULL")]
+		public int interestID
+		{
+			get
+			{
+				return this._interestID;
+			}
+			set
+			{
+				if ((this._interestID != value))
+				{
+					if (this._Interest.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OninterestIDChanging(value);
+					this.SendPropertyChanging();
+					this._interestID = value;
+					this.SendPropertyChanged("interestID");
+					this.OninterestIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_imageID", DbType="Int NOT NULL")]
+		public int imageID
+		{
+			get
+			{
+				return this._imageID;
+			}
+			set
+			{
+				if ((this._imageID != value))
+				{
+					if (this._ImageAd.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnimageIDChanging(value);
+					this.SendPropertyChanging();
+					this._imageID = value;
+					this.SendPropertyChanged("imageID");
+					this.OnimageIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ImageAd_InterestImage", Storage="_ImageAd", ThisKey="imageID", OtherKey="Id", IsForeignKey=true)]
+		public ImageAd ImageAd
+		{
+			get
+			{
+				return this._ImageAd.Entity;
+			}
+			set
+			{
+				ImageAd previousValue = this._ImageAd.Entity;
+				if (((previousValue != value) 
+							|| (this._ImageAd.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ImageAd.Entity = null;
+						previousValue.InterestImages.Remove(this);
+					}
+					this._ImageAd.Entity = value;
+					if ((value != null))
+					{
+						value.InterestImages.Add(this);
+						this._imageID = value.Id;
+					}
+					else
+					{
+						this._imageID = default(int);
+					}
+					this.SendPropertyChanged("ImageAd");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Interest_InterestImage", Storage="_Interest", ThisKey="interestID", OtherKey="Id", IsForeignKey=true)]
+		public Interest Interest
+		{
+			get
+			{
+				return this._Interest.Entity;
+			}
+			set
+			{
+				Interest previousValue = this._Interest.Entity;
+				if (((previousValue != value) 
+							|| (this._Interest.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Interest.Entity = null;
+						previousValue.InterestImages.Remove(this);
+					}
+					this._Interest.Entity = value;
+					if ((value != null))
+					{
+						value.InterestImages.Add(this);
+						this._interestID = value.Id;
+					}
+					else
+					{
+						this._interestID = default(int);
+					}
+					this.SendPropertyChanged("Interest");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	
@@ -295,9 +511,9 @@ namespace Komunikator
 		
 		private string _Interest1;
 		
-		private EntitySet<UserInterest> _UserInterests;
-		
 		private EntitySet<InterestImage> _InterestImages;
+		
+		private EntitySet<UserInterest> _UserInterests;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -311,8 +527,8 @@ namespace Komunikator
 		
 		public Interest()
 		{
-			this._UserInterests = new EntitySet<UserInterest>(new Action<UserInterest>(this.attach_UserInterests), new Action<UserInterest>(this.detach_UserInterests));
 			this._InterestImages = new EntitySet<InterestImage>(new Action<InterestImage>(this.attach_InterestImages), new Action<InterestImage>(this.detach_InterestImages));
+			this._UserInterests = new EntitySet<UserInterest>(new Action<UserInterest>(this.attach_UserInterests), new Action<UserInterest>(this.detach_UserInterests));
 			OnCreated();
 		}
 		
@@ -356,19 +572,6 @@ namespace Komunikator
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Interest_UserInterest", Storage="_UserInterests", ThisKey="Id", OtherKey="interestID")]
-		public EntitySet<UserInterest> UserInterests
-		{
-			get
-			{
-				return this._UserInterests;
-			}
-			set
-			{
-				this._UserInterests.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Interest_InterestImage", Storage="_InterestImages", ThisKey="Id", OtherKey="interestID")]
 		public EntitySet<InterestImage> InterestImages
 		{
@@ -379,6 +582,19 @@ namespace Komunikator
 			set
 			{
 				this._InterestImages.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Interest_UserInterest", Storage="_UserInterests", ThisKey="Id", OtherKey="interestID")]
+		public EntitySet<UserInterest> UserInterests
+		{
+			get
+			{
+				return this._UserInterests;
+			}
+			set
+			{
+				this._UserInterests.Assign(value);
 			}
 		}
 		
@@ -402,18 +618,6 @@ namespace Komunikator
 			}
 		}
 		
-		private void attach_UserInterests(UserInterest entity)
-		{
-			this.SendPropertyChanging();
-			entity.Interest = this;
-		}
-		
-		private void detach_UserInterests(UserInterest entity)
-		{
-			this.SendPropertyChanging();
-			entity.Interest = null;
-		}
-		
 		private void attach_InterestImages(InterestImage entity)
 		{
 			this.SendPropertyChanging();
@@ -421,6 +625,18 @@ namespace Komunikator
 		}
 		
 		private void detach_InterestImages(InterestImage entity)
+		{
+			this.SendPropertyChanging();
+			entity.Interest = null;
+		}
+		
+		private void attach_UserInterests(UserInterest entity)
+		{
+			this.SendPropertyChanging();
+			entity.Interest = this;
+		}
+		
+		private void detach_UserInterests(UserInterest entity)
 		{
 			this.SendPropertyChanging();
 			entity.Interest = null;
@@ -446,8 +662,6 @@ namespace Komunikator
 		private string _Surname;
 		
 		private string _City;
-		
-		private System.Data.Linq.Binary _Avatar;
 		
 		private string _Email;
 		
@@ -477,8 +691,6 @@ namespace Komunikator
     partial void OnSurnameChanged();
     partial void OnCityChanging(string value);
     partial void OnCityChanged();
-    partial void OnAvatarChanging(System.Data.Linq.Binary value);
-    partial void OnAvatarChanged();
     partial void OnEmailChanging(string value);
     partial void OnEmailChanged();
     partial void OnPasswordChanging(string value);
@@ -631,26 +843,6 @@ namespace Komunikator
 					this._City = value;
 					this.SendPropertyChanged("City");
 					this.OnCityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Avatar", DbType="Image", UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary Avatar
-		{
-			get
-			{
-				return this._Avatar;
-			}
-			set
-			{
-				if ((this._Avatar != value))
-				{
-					this.OnAvatarChanging(value);
-					this.SendPropertyChanging();
-					this._Avatar = value;
-					this.SendPropertyChanged("Avatar");
-					this.OnAvatarChanged();
 				}
 			}
 		}
@@ -948,198 +1140,6 @@ namespace Komunikator
 						this._userID = default(int);
 					}
 					this.SendPropertyChanged("User_info");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.InterestImage")]
-	public partial class InterestImage : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _interestID;
-		
-		private int _imageID;
-		
-		private int _Id;
-		
-		private EntityRef<Image> _Image;
-		
-		private EntityRef<Interest> _Interest;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OninterestIDChanging(int value);
-    partial void OninterestIDChanged();
-    partial void OnimageIDChanging(int value);
-    partial void OnimageIDChanged();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    #endregion
-		
-		public InterestImage()
-		{
-			this._Image = default(EntityRef<Image>);
-			this._Interest = default(EntityRef<Interest>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_interestID", DbType="Int NOT NULL")]
-		public int interestID
-		{
-			get
-			{
-				return this._interestID;
-			}
-			set
-			{
-				if ((this._interestID != value))
-				{
-					if (this._Interest.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OninterestIDChanging(value);
-					this.SendPropertyChanging();
-					this._interestID = value;
-					this.SendPropertyChanged("interestID");
-					this.OninterestIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_imageID", DbType="Int NOT NULL")]
-		public int imageID
-		{
-			get
-			{
-				return this._imageID;
-			}
-			set
-			{
-				if ((this._imageID != value))
-				{
-					if (this._Image.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnimageIDChanging(value);
-					this.SendPropertyChanging();
-					this._imageID = value;
-					this.SendPropertyChanged("imageID");
-					this.OnimageIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Image_InterestImage", Storage="_Image", ThisKey="imageID", OtherKey="Id", IsForeignKey=true)]
-		public Image Image
-		{
-			get
-			{
-				return this._Image.Entity;
-			}
-			set
-			{
-				Image previousValue = this._Image.Entity;
-				if (((previousValue != value) 
-							|| (this._Image.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Image.Entity = null;
-						previousValue.InterestImages.Remove(this);
-					}
-					this._Image.Entity = value;
-					if ((value != null))
-					{
-						value.InterestImages.Add(this);
-						this._imageID = value.Id;
-					}
-					else
-					{
-						this._imageID = default(int);
-					}
-					this.SendPropertyChanged("Image");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Interest_InterestImage", Storage="_Interest", ThisKey="interestID", OtherKey="Id", IsForeignKey=true)]
-		public Interest Interest
-		{
-			get
-			{
-				return this._Interest.Entity;
-			}
-			set
-			{
-				Interest previousValue = this._Interest.Entity;
-				if (((previousValue != value) 
-							|| (this._Interest.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Interest.Entity = null;
-						previousValue.InterestImages.Remove(this);
-					}
-					this._Interest.Entity = value;
-					if ((value != null))
-					{
-						value.InterestImages.Add(this);
-						this._interestID = value.Id;
-					}
-					else
-					{
-						this._interestID = default(int);
-					}
-					this.SendPropertyChanged("Interest");
 				}
 			}
 		}

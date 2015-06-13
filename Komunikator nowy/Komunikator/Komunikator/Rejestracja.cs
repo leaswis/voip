@@ -7,12 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Komunikator
 {
     public partial class Rejestracja : Form
     {
         Logic logic = new Logic();
+        int loggedUser;
+      
+        
 
         public Rejestracja()
         {
@@ -38,13 +42,12 @@ namespace Komunikator
             try
             {
                
-
-
                 info.Name = this.textBoxName.Text;
                 info.Surname = this.textBoxSurname.Text;
                 info.City = this.textBoxCity.Text;
                 info.Email = this.textBoxEmail.Text;
                 info.Password = this.textBoxPassword.Text;
+                info.Birthdate = this.comboBoxDay.SelectedText; //+ this.comboBoxMonth.SelectedText + this.comboBoxYear.SelectedText;
                 info.isBusy = false;
                 info.isConnected = false;
                 if (radioButtonFemale.Checked)
@@ -73,6 +76,8 @@ namespace Komunikator
                  List<int> list = new List<int>();
 
                  logic.LoadUserInfo(info, info.Email);
+                 loggedUser = info.Id;
+                 Komunikator okno = new Komunikator(loggedUser);
            
                 if (checkBoxAnimals.Checked)
                 {
@@ -186,14 +191,30 @@ namespace Komunikator
 
                     logic.AddInterest(info, 11);
                 }
-               /* if (zadne nie jest zaznaczone)
+                /*if (checkBoxAnimals.Checked == false &&
+                    checkBoxBlogs.Checked == false &&
+                    checkBoxCuisine.Checked == false &&
+                    checkBoxEntertaiment.Checked == false &&
+                    checkBoxFashion.Checked == false &&
+                    checkBoxGames.Checked == false &&
+                    checkBoxMovies.Checked == false &&
+                    checkBoxMusic.Checked == false &&
+                    checkBoxPersonalGrowth.Checked == false &&
+                    checkBoxRecreation.Checked == false &&
+                    checkBoxSport.Checked == false &&
+                    checkBoxTechnology.Checked == false &&
+                    checkBoxTheatre.Checked == false &&
+                    checkBoxTravels.Checked == false &&
+                    checkBoxTV.Checked == false)
                 {
                     MessageBox.Show("Zaznacz CO NAJMNIEJ jedno");
-                }*/
-
-                
+                */
 
                  //logic.AddInterest(info, list);
+
+                MessageBox.Show("Zarejestrowano pomyślnie");
+                okno.Show();
+                this.Hide();
                 
             }
             catch (Exception exc)
@@ -201,8 +222,26 @@ namespace Komunikator
                 throw exc;
             }
 
-            MessageBox.Show("zarejestrowano pomyślnie");
+          
 
+           
+
+        }
+
+        private void buttonAddAvatar_Click(object sender, EventArgs e)
+        {
+           /* OpenFileDialog avatar = new OpenFileDialog();
+            avatar.Filter = "JPG Files (*.jpg)|*.jpg|PNG Files (*.png)|*.png";
+            avatar.Title = "Wybierz obraz";
+
+            if (avatar.ShowDialog() == DialogResult.OK)
+            {
+                imgLoc = avatar.FileName.ToString();
+            }*/
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
 
         }
     }

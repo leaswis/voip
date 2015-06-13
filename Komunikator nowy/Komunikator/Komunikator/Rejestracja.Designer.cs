@@ -45,12 +45,9 @@
             this.radioButtonMale = new System.Windows.Forms.RadioButton();
             this.radioButtonUndefined = new System.Windows.Forms.RadioButton();
             this.comboBoxDay = new System.Windows.Forms.ComboBox();
-            this.comboBoxMonth = new System.Windows.Forms.ComboBox();
             this.comboBoxYear = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.pictureBoxAvatarReg = new System.Windows.Forms.PictureBox();
-            this.buttonAddAvatar = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.buttonRegister = new System.Windows.Forms.Button();
             this.checkBoxPersonalGrowth = new System.Windows.Forms.CheckBox();
@@ -68,8 +65,9 @@
             this.checkBoxEntertaiment = new System.Windows.Forms.CheckBox();
             this.checkBoxSport = new System.Windows.Forms.CheckBox();
             this.checkBoxFashion = new System.Windows.Forms.CheckBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.comboBoxMonth = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAvatarReg)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -267,27 +265,6 @@
             this.comboBoxDay.Size = new System.Drawing.Size(41, 21);
             this.comboBoxDay.TabIndex = 14;
             // 
-            // comboBoxMonth
-            // 
-            this.comboBoxMonth.FormattingEnabled = true;
-            this.comboBoxMonth.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12"});
-            this.comboBoxMonth.Location = new System.Drawing.Point(299, 260);
-            this.comboBoxMonth.Name = "comboBoxMonth";
-            this.comboBoxMonth.Size = new System.Drawing.Size(41, 21);
-            this.comboBoxMonth.TabIndex = 15;
-            // 
             // comboBoxYear
             // 
             this.comboBoxYear.FormattingEnabled = true;
@@ -362,30 +339,6 @@
             this.label9.Size = new System.Drawing.Size(14, 17);
             this.label9.TabIndex = 18;
             this.label9.Text = "-";
-            // 
-            // pictureBoxAvatarReg
-            // 
-            this.pictureBoxAvatarReg.BackgroundImage = global::Komunikator.Properties.Resources.avek11;
-            this.pictureBoxAvatarReg.Location = new System.Drawing.Point(353, 46);
-            this.pictureBoxAvatarReg.Name = "pictureBoxAvatarReg";
-            this.pictureBoxAvatarReg.Size = new System.Drawing.Size(109, 102);
-            this.pictureBoxAvatarReg.TabIndex = 19;
-            this.pictureBoxAvatarReg.TabStop = false;
-            // 
-            // buttonAddAvatar
-            // 
-            this.buttonAddAvatar.BackColor = System.Drawing.Color.White;
-            this.buttonAddAvatar.FlatAppearance.BorderSize = 0;
-            this.buttonAddAvatar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.buttonAddAvatar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.buttonAddAvatar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAddAvatar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonAddAvatar.Location = new System.Drawing.Point(347, 170);
-            this.buttonAddAvatar.Name = "buttonAddAvatar";
-            this.buttonAddAvatar.Size = new System.Drawing.Size(127, 26);
-            this.buttonAddAvatar.TabIndex = 20;
-            this.buttonAddAvatar.Text = "Wczytaj obraz";
-            this.buttonAddAvatar.UseVisualStyleBackColor = false;
             // 
             // label10
             // 
@@ -592,12 +545,45 @@
             this.checkBoxFashion.Text = "Moda";
             this.checkBoxFashion.UseVisualStyleBackColor = true;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label11.Location = new System.Drawing.Point(30, 352);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(155, 17);
+            this.label11.TabIndex = 45;
+            this.label11.Text = "ZAINTERESOWANIA";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
+            // 
+            // comboBoxMonth
+            // 
+            this.comboBoxMonth.FormattingEnabled = true;
+            this.comboBoxMonth.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
+            this.comboBoxMonth.Location = new System.Drawing.Point(299, 260);
+            this.comboBoxMonth.Name = "comboBoxMonth";
+            this.comboBoxMonth.Size = new System.Drawing.Size(41, 21);
+            this.comboBoxMonth.TabIndex = 15;
+            // 
             // Rejestracja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(663, 539);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.checkBoxPersonalGrowth);
             this.Controls.Add(this.checkBoxTravels);
             this.Controls.Add(this.checkBoxTheatre);
@@ -615,8 +601,6 @@
             this.Controls.Add(this.checkBoxFashion);
             this.Controls.Add(this.buttonRegister);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.buttonAddAvatar);
-            this.Controls.Add(this.pictureBoxAvatarReg);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.comboBoxYear);
@@ -638,7 +622,6 @@
             this.Text = "Rejestracja";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAvatarReg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -663,12 +646,9 @@
         private System.Windows.Forms.RadioButton radioButtonMale;
         private System.Windows.Forms.RadioButton radioButtonUndefined;
         private System.Windows.Forms.ComboBox comboBoxDay;
-        private System.Windows.Forms.ComboBox comboBoxMonth;
         private System.Windows.Forms.ComboBox comboBoxYear;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.PictureBox pictureBoxAvatarReg;
-        private System.Windows.Forms.Button buttonAddAvatar;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button buttonRegister;
         private System.Windows.Forms.CheckBox checkBoxPersonalGrowth;
@@ -686,5 +666,7 @@
         private System.Windows.Forms.CheckBox checkBoxEntertaiment;
         private System.Windows.Forms.CheckBox checkBoxSport;
         private System.Windows.Forms.CheckBox checkBoxFashion;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox comboBoxMonth;
     }
 }

@@ -6,19 +6,29 @@
       <Column Name="contactID" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Images" Member="Images">
-    <Type Name="Image">
+  <Table Name="dbo.ImageAds" Member="ImageAds">
+    <Type Name="ImageAd">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="image" Member="image1" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Association Name="Image_InterestImage" Member="InterestImages" ThisKey="Id" OtherKey="imageID" Type="InterestImage" />
+      <Column Name="image" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="imageName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="ImageAd_InterestImage" Member="InterestImages" ThisKey="Id" OtherKey="imageID" Type="InterestImage" />
+    </Type>
+  </Table>
+  <Table Name="dbo.InterestImage" Member="InterestImages">
+    <Type Name="InterestImage">
+      <Column Name="interestID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="imageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="ImageAd_InterestImage" Member="ImageAd" ThisKey="imageID" OtherKey="Id" Type="ImageAd" IsForeignKey="true" />
+      <Association Name="Interest_InterestImage" Member="Interest" ThisKey="interestID" OtherKey="Id" Type="Interest" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Interests" Member="Interests">
     <Type Name="Interest">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Interest" Member="Interest1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="Interest_UserInterest" Member="UserInterests" ThisKey="Id" OtherKey="interestID" Type="UserInterest" />
       <Association Name="Interest_InterestImage" Member="InterestImages" ThisKey="Id" OtherKey="interestID" Type="InterestImage" />
+      <Association Name="Interest_UserInterest" Member="UserInterests" ThisKey="Id" OtherKey="interestID" Type="UserInterest" />
     </Type>
   </Table>
   <Table Name="dbo.User_info" Member="User_infos">
@@ -30,7 +40,6 @@
       <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Surname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="City" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Avatar" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="isBusy" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
@@ -45,15 +54,6 @@
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Association Name="Interest_UserInterest" Member="Interest" ThisKey="interestID" OtherKey="Id" Type="Interest" IsForeignKey="true" />
       <Association Name="User_info_UserInterest" Member="User_info" ThisKey="userID" OtherKey="Id" Type="User_info" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.InterestImage" Member="InterestImages">
-    <Type Name="InterestImage">
-      <Column Name="interestID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="imageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Association Name="Image_InterestImage" Member="Image" ThisKey="imageID" OtherKey="Id" Type="Image" IsForeignKey="true" />
-      <Association Name="Interest_InterestImage" Member="Interest" ThisKey="interestID" OtherKey="Id" Type="Interest" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

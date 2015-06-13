@@ -30,11 +30,12 @@ namespace Komunikator
         {
             Rejestracja okno = new Rejestracja();
             okno.Show();
+            this.Hide();
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            Komunikator okno = new Komunikator();
+            //Komunikator okno = new Komunikator();
             try
             {
                 User_info temp = new User_info();
@@ -45,7 +46,10 @@ namespace Komunikator
                 logic.LoadUserInfo(userLogin, temp.Email);
                 if (userLogin.Password == temp.Password)
                 {
+                    int userLogged = userLogin.Id;
+                    Komunikator okno = new Komunikator(userLogged);
                     okno.Show();
+                    this.Hide();
                    // MessageBox.Show("Zalogowano");
                 }
             }
@@ -54,8 +58,7 @@ namespace Komunikator
                 throw exc;
             }
 
-            /*Komunikator okno = new Komunikator();
-            okno.Show();*/
+           
         }
     }
 }
