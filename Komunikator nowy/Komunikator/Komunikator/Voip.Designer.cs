@@ -28,64 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelName = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.listViewKontakty = new System.Windows.Forms.ListView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Location = new System.Drawing.Point(8, 133);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(612, 161);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelName.Location = new System.Drawing.Point(15, 18);
+            this.labelName.Location = new System.Drawing.Point(25, 20);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(57, 20);
-            this.labelName.TabIndex = 1;
-            this.labelName.Text = "label1";
+            this.labelName.Size = new System.Drawing.Size(0, 20);
+            this.labelName.TabIndex = 0;
             // 
-            // label1
+            // label2
             // 
-            this.label1.AutoSize = true;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(15, 60);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(345, 20);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Wybierz z listy do kogo chcesz zadzwonić:";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(25, 60);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(295, 20);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Wybierz do kogo chcesz zadzwonić:";
             // 
-            // listViewKontakty
+            // listView1
             // 
-            this.listViewKontakty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.listViewKontakty.Location = new System.Drawing.Point(366, 63);
-            this.listViewKontakty.Name = "listViewKontakty";
-            this.listViewKontakty.Size = new System.Drawing.Size(249, 17);
-            this.listViewKontakty.TabIndex = 3;
-            this.listViewKontakty.UseCompatibleStateImageBehavior = false;
-            this.listViewKontakty.View = System.Windows.Forms.View.List;
+            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.listView1.Location = new System.Drawing.Point(345, 66);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(241, 14);
+            this.listView1.TabIndex = 2;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(28, 107);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(557, 169);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // Voip
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(627, 303);
-            this.Controls.Add(this.listViewKontakty);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.labelName);
+            this.ClientSize = new System.Drawing.Size(609, 296);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.labelName);
             this.Name = "Voip";
             this.Text = "Voip";
             this.Load += new System.EventHandler(this.Voip_Load);
@@ -97,9 +92,9 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label labelName;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListView listViewKontakty;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -20,7 +20,7 @@ namespace Komunikator
         UserInterest user_interest = new UserInterest();
         int loggedUser;
         List<int> interest_list = new List<int>();
-        currentUser cuser = new currentUser();
+        
         Logic logic = new Logic();
 
         //List<Image> list = new List<Image>();
@@ -97,15 +97,7 @@ namespace Komunikator
    
         }
 
-                public List<int> takeInterest(UserInterest uintr, int userId)
-        {
-            List<int> a = new List<int>();
-            logic.LoadInterestId(uintr, userId);
-
-            a.Add(uintr.interestID);
-
-            return a;
-        }
+  
 
         private void Komunikator_Load(object sender, EventArgs e)
         {
@@ -120,18 +112,6 @@ namespace Komunikator
             okno.Show();
         }
 
-        public class currentUser
-        {
-            int currentUserId;
-
-            public int current
-            {
-                get { return currentUserId; }
-                set { currentUserId = value; }
-            }
-
-            
-        }
 
     }
 }

@@ -17,27 +17,28 @@ namespace Komunikator
         UserInterest user_interest = new UserInterest();
         int loggedUser;
         List<int> interest_list = new List<int>();
-
+       
         Logic logic = new Logic();
+
 
         public Voip(int dataReceived)
         {
             InitializeComponent();
-
             User_info info = new User_info();
-            
+            InitializeComponent();
 
             loggedUser = dataReceived;
 
             logic.DisplayUserInfo(info, loggedUser);
             string name = info.Name;
-            labelName.Text = "Witaj " + name + "!";
-
+            labelName.Text = name + ",";
 
             int[] list = takeListInterest(user_interest, loggedUser);
 
             displayAdds(obraz, list);
         }
+
+
         private async void displayAdds(ImageAd img, int[] list)
         {
             //List<int> list = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
@@ -91,10 +92,9 @@ namespace Komunikator
 
         }
 
-
         private void Voip_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
