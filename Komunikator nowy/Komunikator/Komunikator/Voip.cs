@@ -16,8 +16,7 @@ namespace Komunikator
         ImageAd obraz = new ImageAd();
         UserInterest user_interest = new UserInterest();
         int loggedUser;
-        List<int> interest_list = new List<int>();
-       
+     
         Logic logic = new Logic();
 
 
@@ -56,8 +55,8 @@ namespace Komunikator
 
                         img.image = table.Single().image;
 
-                        pictureBox1.Image = ByteArrayToImage(img.image.ToArray());
-                        pictureBox1.Refresh();
+                        pic.Image = ByteArrayToImage(img.image.ToArray());
+                        pic.Refresh();
                         await Task.Delay(1000);
                     }
 

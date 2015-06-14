@@ -79,6 +79,7 @@
             // RegisterButton
             // 
             this.RegisterButton.BackColor = System.Drawing.Color.Red;
+            this.RegisterButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RegisterButton.FlatAppearance.BorderSize = 0;
             this.RegisterButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
             this.RegisterButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
@@ -96,6 +97,7 @@
             // LoginButton
             // 
             this.LoginButton.BackColor = System.Drawing.Color.White;
+            this.LoginButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LoginButton.FlatAppearance.BorderSize = 0;
             this.LoginButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
             this.LoginButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
@@ -112,6 +114,7 @@
             // GoogleButton
             // 
             this.GoogleButton.BackColor = System.Drawing.Color.White;
+            this.GoogleButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.GoogleButton.FlatAppearance.BorderSize = 0;
             this.GoogleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GoogleButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));

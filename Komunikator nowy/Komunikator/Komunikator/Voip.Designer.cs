@@ -31,8 +31,8 @@
             this.labelName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pic = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pic)).BeginInit();
             this.SuspendLayout();
             // 
             // labelName
@@ -63,13 +63,13 @@
             this.listView1.TabIndex = 2;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
-            // pictureBox1
+            // pic
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(28, 107);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(557, 169);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.pic.Location = new System.Drawing.Point(28, 107);
+            this.pic.Name = "pic";
+            this.pic.Size = new System.Drawing.Size(557, 169);
+            this.pic.TabIndex = 3;
+            this.pic.TabStop = false;
             // 
             // Voip
             // 
@@ -77,14 +77,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(609, 296);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pic);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.labelName);
             this.Name = "Voip";
             this.Text = "Voip";
             this.Load += new System.EventHandler(this.Voip_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -95,6 +95,6 @@
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pic;
     }
 }

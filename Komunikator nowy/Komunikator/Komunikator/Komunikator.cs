@@ -19,9 +19,8 @@ namespace Komunikator
         ImageAd obraz = new ImageAd();
         UserInterest user_interest = new UserInterest();
         int loggedUser;
-        List<int> interest_list = new List<int>();
-        
-        Logic logic = new Logic();
+ 
+      Logic logic = new Logic();
 
         //List<Image> list = new List<Image>();
 
