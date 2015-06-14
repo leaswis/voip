@@ -36,21 +36,111 @@ namespace Komunikator
             string name = info.Name;
             labelHello.Text = "Witaj " + name + "!";
 
-          /* Timer MyTimer = new Timer();
-            // 45 mins
-            MyTimer.Tick += new EventHandler(MyTimer_Tick);
-            MyTimer.Interval = (1 * 60 * 1000); 
-            MyTimer.Start();*/
 
-            //displayList(obraz);
-            displayAdds(obraz, 9);
-            // pictureBox1.Invalidate();
-            //displayAd(obraz);
-            // proba(obraz);
+          
+            //displayAdd(obraz, 9);
+   
+          // displayAdds(obraz, takeListInterest(user_interest, loggedUser));
 
-           // proszeDzialaj(obraz);
+            displayAdds(obraz);
+        }
+
+        private async void displayAdds(ImageAd img)
+        {
+            List<int> list = new List<int> { 1, 2, 3 };
            
+            while (true)
+            {
+                foreach (int i in list)
+                {
+                    using (var dbContext = new LinqClassesDataContext())
+                    {
 
+                        var table = from t in dbContext.ImageAds
+                                    where t.Id == i
+                                    select t;
+
+                        img.image = table.Single().image;
+
+                        pictureBox1.Image = ByteArrayToImage(img.image.ToArray());
+                        pictureBox1.Refresh();
+                        await Task.Delay(1000);
+                    }
+
+                }
+            }
+        }
+
+
+
+        public Image ByteArrayToImage(byte[] byteArrayIn)
+        {
+            using (MemoryStream ms = new MemoryStream(byteArrayIn))
+            {
+                Image returnImage = Image.FromStream(ms);
+                return returnImage;
+            }
+        }
+
+        public List<int> takeListInterest(UserInterest usr, int userId)
+        {
+            int x;
+            List<int> list_pass = new List<int>();
+            using (var dbContext = new LinqClassesDataContext())
+            {
+                var result = (from a in dbContext.UserInterests
+                              where a.userID == userId
+                              select new  {a.interestID});
+
+                List<UserInterest> list = result.AsEnumerable()
+                          .Select(o => new UserInterest
+                          {
+                              interestID = o.interestID
+                          }).ToList();
+
+                foreach (UserInterest i in list)
+                {
+                    x = Convert.ToInt32(i);
+                    list_pass.Add(x);
+                }
+
+                return list_pass;
+            }
+
+            
+        }
+
+                public int takeInterest(UserInterest uintr, int userId)
+        {
+            int a;
+            logic.LoadInterestId(uintr, userId);
+
+            a = uintr.interestID;
+
+            return a;
+        }
+
+        private void Komunikator_Load(object sender, EventArgs e)
+        {
+           
+        }
+
+        /*-------------PROBY---------------*/
+
+    /*    public void displayAdd(ImageAd img, int imgid)
+        {
+
+            using (var dbContext = new LinqClassesDataContext())
+            {
+
+                var table = from t in dbContext.ImageAds
+                            where t.Id == imgid
+                            select t;
+
+                img.image = table.Single().image;
+
+                pictureBox1.Image = ByteArrayToImage(img.image.ToArray());
+            }
         }
 
         void proszeDzialaj(ImageAd obr)
@@ -72,7 +162,7 @@ namespace Komunikator
                                         select t;
                            /* var images = from t in dbContext.ImageAds
                                          where array.Contains(t.Id)
-                                         select t.image;*/
+                                         select t.image;
 
                             //imga.image = table.Single().image;
                             // call method in ui thread
@@ -97,7 +187,7 @@ namespace Komunikator
                 //First get all image from db
                 /*var images = from t in dbContext.ImageAds
                              where array.Contains(t.Id)
-                             select t.image;*/
+                             select t.image;
 
                // imga.image = images.Single().ToArray();
 
@@ -110,7 +200,7 @@ namespace Komunikator
                         {
                             /*var table = from t in dbContext.ImageAds
                                         where t.Id == img
-                                        select t;*/
+                                        select t;
                             var images = from t in dbContext.ImageAds
                                          where array.Contains(t.Id)
                                          select t.image;
@@ -135,21 +225,7 @@ namespace Komunikator
             
         }
 
-        public void displayAdds(ImageAd img, int imgid)
-        {
-           
-             using (var dbContext = new LinqClassesDataContext())
-            {
-
-                var table = from t in dbContext.ImageAds
-                            where t.Id == imgid
-                            select t;
-
-                img.image = table.Single().image;
-
-                pictureBox1.Image = ByteArrayToImage(img.image.ToArray());
-            }
-        }
+       
 
 
         public void displayAd(ImageAd img)
@@ -214,14 +290,7 @@ namespace Komunikator
 
    
 
-        public Image ByteArrayToImage(byte[] byteArrayIn)
-        {
-            using (MemoryStream ms = new MemoryStream(byteArrayIn))
-            {
-                Image returnImage = Image.FromStream(ms);
-                return returnImage;
-            }
-        }
+    
 
       
         /* public List<int> takeInterests(UserInterest uintr, int userId)
@@ -231,22 +300,7 @@ namespace Komunikator
 
          
             }*/
- 
 
-        public int takeInterest(UserInterest uintr, int userId)
-        {
-            int a;
-            logic.LoadInterestId(uintr, userId);
-
-            a = uintr.interestID;
-
-            return a;
-        }
-
-        private void Komunikator_Load(object sender, EventArgs e)
-        {
-           
-        }
 
     }
 }
