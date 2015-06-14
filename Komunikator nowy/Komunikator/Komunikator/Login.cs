@@ -35,10 +35,8 @@ namespace Komunikator
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            //Komunikator okno = new Komunikator();
-            try
-            {
-                User_info temp = new User_info();
+            
+             User_info temp = new User_info();
                 temp.Email = this.textBoxEmail2.Text;
                 temp.Password = this.textBoxHaslo.Text;
 
@@ -50,15 +48,15 @@ namespace Komunikator
                     Komunikator okno = new Komunikator(userLogged);
                     okno.Show();
                     this.Hide();
-                   // MessageBox.Show("Zalogowano");
+                  
                 }
-            }
-            catch (Exception exc)
-            {
-                throw exc;
-            }
-
            
+           
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

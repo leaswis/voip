@@ -25,23 +25,15 @@ namespace Komunikator
                 info.Name = table.Single().Name;
                 info.Surname = table.Single().Surname;
                 info.City = table.Single().City;
-                //info.Avatar = table.Single().Avatar;
                 info.Email = table.Single().Email;
                 info.Password = table.Single().Password;
                 info.isBusy = table.Single().isBusy;
                 info.isConnected = table.Single().isConnected;
 
-                //do rejes.
-                //info.interestID = table.Single().interestID;
-               
-
-
-
-
             }
         }
 
-        public void DisplayUserInfo(User_info info, int logid)
+       public void DisplayUserInfo(User_info info, int logid)
         {
             using (var dbContext = new LinqClassesDataContext())
             {

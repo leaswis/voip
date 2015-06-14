@@ -56,6 +56,7 @@
             // voipButton
             // 
             this.voipButton.BackgroundImage = global::Komunikator.Properties.Resources.tele;
+            this.voipButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.voipButton.FlatAppearance.BorderSize = 0;
             this.voipButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
             this.voipButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
@@ -65,6 +66,7 @@
             this.voipButton.Size = new System.Drawing.Size(67, 64);
             this.voipButton.TabIndex = 2;
             this.voipButton.UseVisualStyleBackColor = true;
+            this.voipButton.Click += new System.EventHandler(this.voipButton_Click);
             // 
             // avatarPictureBox
             // 

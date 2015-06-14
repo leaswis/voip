@@ -8,46 +8,40 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-//using System.Threading;
-
-
 
 namespace Komunikator
 {
-    public partial class Komunikator : Form
+    public partial class Voip : Form
     {
         ImageAd obraz = new ImageAd();
         UserInterest user_interest = new UserInterest();
         int loggedUser;
         List<int> interest_list = new List<int>();
-        currentUser cuser = new currentUser();
+
         Logic logic = new Logic();
 
-        //List<Image> list = new List<Image>();
-
-        public Komunikator(int dataReceived)
+        public Voip(int dataReceived)
         {
-            User_info info = new User_info();
             InitializeComponent();
+
+            User_info info = new User_info();
+            
 
             loggedUser = dataReceived;
 
             logic.DisplayUserInfo(info, loggedUser);
             string name = info.Name;
-            labelHello.Text = "Witaj " + name + "!";
+            labelName.Text = "Witaj " + name + "!";
 
-            
+
             int[] list = takeListInterest(user_interest, loggedUser);
 
             displayAdds(obraz, list);
-
-      
         }
-
         private async void displayAdds(ImageAd img, int[] list)
         {
             //List<int> list = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-           
+
             while (true)
             {
                 foreach (int i in list)
@@ -55,7 +49,7 @@ namespace Komunikator
                     using (var dbContext = new LinqClassesDataContext())
                     {
 
-                       var table = from t in dbContext.ImageAds
+                        var table = from t in dbContext.ImageAds
                                     where t.Id == i
                                     select t;
 
@@ -70,7 +64,7 @@ namespace Komunikator
             }
         }
 
-  
+
 
         public Image ByteArrayToImage(byte[] byteArrayIn)
         {
@@ -83,55 +77,24 @@ namespace Komunikator
 
         public int[] takeListInterest(UserInterest usr, int userId)
         {
-           
-                using (var dbContext = new LinqClassesDataContext())
-                {
 
-                    int[] list_interest = dbContext.UserInterests
-                    .Where(v => v.userID == userId)
-                    .Select(v => v.interestID).ToArray();
-
-                    return list_interest;
-               
-                }
-   
-        }
-
-                public List<int> takeInterest(UserInterest uintr, int userId)
-        {
-            List<int> a = new List<int>();
-            logic.LoadInterestId(uintr, userId);
-
-            a.Add(uintr.interestID);
-
-            return a;
-        }
-
-        private void Komunikator_Load(object sender, EventArgs e)
-        {
-           
-        }
-
-      
-
-        private void voipButton_Click(object sender, EventArgs e)
-        {
-            Voip okno = new Voip(loggedUser);
-            okno.Show();
-        }
-
-        public class currentUser
-        {
-            int currentUserId;
-
-            public int current
+            using (var dbContext = new LinqClassesDataContext())
             {
-                get { return currentUserId; }
-                set { currentUserId = value; }
+
+                int[] list_interest = dbContext.UserInterests
+                .Where(v => v.userID == userId)
+                .Select(v => v.interestID).ToArray();
+
+                return list_interest;
+
             }
 
-            
         }
 
+
+        private void Voip_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
