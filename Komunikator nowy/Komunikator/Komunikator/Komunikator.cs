@@ -36,18 +36,15 @@ namespace Komunikator
             string name = info.Name;
             labelHello.Text = "Witaj " + name + "!";
 
+            
+            int[] list = takeListInterest(user_interest, loggedUser);
 
-          
-            //displayAdd(obraz, 9);
-   
-          // displayAdds(obraz, takeListInterest(user_interest, loggedUser));
-
-            displayAdds(obraz);
+            displayAdds(obraz, list);
         }
 
-        private async void displayAdds(ImageAd img)
+        private async void displayAdds(ImageAd img, int[] list)
         {
-            List<int> list = new List<int> { 1, 2, 3 };
+            //List<int> list = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
            
             while (true)
             {
@@ -56,7 +53,7 @@ namespace Komunikator
                     using (var dbContext = new LinqClassesDataContext())
                     {
 
-                        var table = from t in dbContext.ImageAds
+                       var table = from t in dbContext.ImageAds
                                     where t.Id == i
                                     select t;
 
@@ -71,7 +68,7 @@ namespace Komunikator
             }
         }
 
-
+  
 
         public Image ByteArrayToImage(byte[] byteArrayIn)
         {
@@ -82,40 +79,28 @@ namespace Komunikator
             }
         }
 
-        public List<int> takeListInterest(UserInterest usr, int userId)
+        public int[] takeListInterest(UserInterest usr, int userId)
         {
-            int x;
-            List<int> list_pass = new List<int>();
-            using (var dbContext = new LinqClassesDataContext())
-            {
-                var result = (from a in dbContext.UserInterests
-                              where a.userID == userId
-                              select new  {a.interestID});
-
-                List<UserInterest> list = result.AsEnumerable()
-                          .Select(o => new UserInterest
-                          {
-                              interestID = o.interestID
-                          }).ToList();
-
-                foreach (UserInterest i in list)
+           
+                using (var dbContext = new LinqClassesDataContext())
                 {
-                    x = Convert.ToInt32(i);
-                    list_pass.Add(x);
+
+                    int[] list_interest = dbContext.UserInterests
+                    .Where(v => v.userID == userId)
+                    .Select(v => v.interestID).ToArray();
+
+                    return list_interest;
+               
                 }
-
-                return list_pass;
-            }
-
-            
+   
         }
 
-                public int takeInterest(UserInterest uintr, int userId)
+                public List<int> takeInterest(UserInterest uintr, int userId)
         {
-            int a;
+            List<int> a = new List<int>();
             logic.LoadInterestId(uintr, userId);
 
-            a = uintr.interestID;
+            a.Add(uintr.interestID);
 
             return a;
         }
