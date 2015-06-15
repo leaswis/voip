@@ -20,3 +20,5 @@ C:\Users\Laura\Documents\GitHub\voip\Komunikator nowy\Komunikator\Komunikator\ob
 C:\Users\Laura\Documents\GitHub\voip\Komunikator nowy\Komunikator\Komunikator\obj\Debug\Komunikator.Properties.Resources.resources
 C:\Users\Laura\Documents\GitHub\voip\Komunikator nowy\Komunikator\Komunikator\obj\Debug\Komunikator.Rejestracja.resources
 C:\Users\Laura\Documents\GitHub\voip\Komunikator nowy\Komunikator\Komunikator\obj\Debug\Komunikator.csproj.GenerateResource.Cache
+C:\Users\Laura\Documents\GitHub\voip\Komunikator nowy\Komunikator\Komunikator\obj\Debug\Komunikator.Rozmowa.resources
+C:\Users\Laura\Documents\GitHub\voip\Komunikator nowy\Komunikator\Komunikator\obj\Debug\Komunikator.Profil.resources

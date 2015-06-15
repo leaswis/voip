@@ -107,7 +107,13 @@ namespace Komunikator
 
         private void voipButton_Click(object sender, EventArgs e)
         {
-            Voip okno = new Voip(loggedUser);
+            Rozmowa okno = new Rozmowa(loggedUser);
+            okno.Show();
+        }
+        
+        private void myProfileButton_Click(object sender, EventArgs e)
+        {
+            Profil okno = new Profil(loggedUser);
             okno.Show();
         }
 

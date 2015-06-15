@@ -41,6 +41,7 @@
             // myProfileButton
             // 
             this.myProfileButton.BackColor = System.Drawing.Color.White;
+            this.myProfileButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.myProfileButton.FlatAppearance.BorderSize = 0;
             this.myProfileButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
             this.myProfileButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
@@ -52,6 +53,7 @@
             this.myProfileButton.TabIndex = 1;
             this.myProfileButton.Text = "Mój profil";
             this.myProfileButton.UseVisualStyleBackColor = false;
+            this.myProfileButton.Click += new System.EventHandler(this.myProfileButton_Click);
             // 
             // voipButton
             // 

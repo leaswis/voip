@@ -119,11 +119,12 @@
             this.GoogleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GoogleButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.GoogleButton.Image = global::Komunikator.Properties.Resources.gog;
-            this.GoogleButton.Location = new System.Drawing.Point(307, 95);
+            this.GoogleButton.Location = new System.Drawing.Point(309, 95);
             this.GoogleButton.Name = "GoogleButton";
             this.GoogleButton.Size = new System.Drawing.Size(75, 77);
             this.GoogleButton.TabIndex = 6;
             this.GoogleButton.UseVisualStyleBackColor = false;
+            this.GoogleButton.Click += new System.EventHandler(this.GoogleButton_Click);
             // 
             // Login
             // 
