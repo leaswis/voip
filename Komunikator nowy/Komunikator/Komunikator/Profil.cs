@@ -17,6 +17,7 @@ namespace Komunikator
         int loggedUser;
         UserInterest userint = new UserInterest();
         Interest intr = new Interest();
+        DateTime today = DateTime.Today;
 
         public Profil(int dataReceived)
         {
@@ -34,8 +35,6 @@ namespace Komunikator
             int[] list = takeListInterest(userint, loggedUser);
             List<string> nazwy = new List<string>();
 
-            
-
             foreach (int i in list)
             {
                 logic.LoadInterests(intr, i);
@@ -44,6 +43,19 @@ namespace Komunikator
             }
 
             textBoxInterests.Text = string.Join(", ", nazwy);
+
+            
+            DateTime? bt = user_info.Birthdate;
+            if (bt != null)
+            {
+                DateTime bd = bt.Value;
+                int bdate = today.Year - bd.Year;
+
+                var age = string.Join("", bdate);
+
+                textBoxAge.Text = age;
+          
+            }
 
         }
 

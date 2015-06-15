@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Diagnostics;
 //using System.Threading;
 
 
@@ -35,15 +36,26 @@ namespace Komunikator
             string name = info.Name;
             labelHello.Text = "Witaj " + name + "!";
 
-           // DateTime bd = info.Birthdate;
-            //int bdate = today.Year - bd.Year;
+            DateTime? bt = info.Birthdate;
+            if (bt != null)
+            {
+                DateTime bd = bt.Value;
+                int bdate = today.Year - bd.Year;
+                List<int> ageid = ageId(bdate);
+
+                displayAddsOnAge(obraz, ageid);
+            }
+            
             
             int[] list = takeListInterest(user_interest, loggedUser);
 
             displayAdds(obraz, list);
 
+            
       
         }
+
+        
 
         private async void displayAdds(ImageAd img, int[] list)
         {
@@ -70,6 +82,34 @@ namespace Komunikator
                 }
             }
         }
+
+        private async void displayAddsOnAge(ImageAd img, List<int> list)
+        {
+          
+
+            while (true)
+            {
+                foreach (int i in list)
+                {
+                    using (var dbContext = new LinqClassesDataContext())
+                    {
+
+                        var table = from t in dbContext.ImageAds
+                                    where t.Id == i
+                                    select t;
+
+                        img.image = table.Single().image;
+
+                        pictureBox2.Image = ByteArrayToImage(img.image.ToArray());
+                        pictureBox2.Refresh();
+                        await Task.Delay(1000);
+                    }
+
+                }
+            }
+        }
+
+        
 
   
 
@@ -98,6 +138,25 @@ namespace Komunikator
    
         }
 
+
+        public List<int> ageId(int age)
+        {
+            List<int> a = new List<int>();// { 18, 19, 20 };
+           if (age <= 30 && age >= 20)
+               { a.Add(18);
+               a.Add(19);
+               a.Add(20);
+           }
+
+           if (age <= 40 && age > 30)
+           {
+               a.Add(21);
+               a.Add(22);
+               a.Add(23);
+           }
+
+            return a;   
+        }
   
 
         private void Komunikator_Load(object sender, EventArgs e)
@@ -117,6 +176,16 @@ namespace Komunikator
         {
             Profil okno = new Profil(loggedUser);
             okno.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Process.Start("http://www.pudelek.pl");
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Process.Start("http://www.google.pl");
         }
 
 
