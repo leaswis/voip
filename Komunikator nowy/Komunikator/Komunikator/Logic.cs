@@ -80,6 +80,20 @@ namespace Komunikator
             }
         }
 
+        public void LoadInterests(Interest intr, int id)
+        {
+            using (var dbContext = new LinqClassesDataContext())
+            {
+
+                var table = from t in dbContext.Interests
+                            where t.Id == id
+                            select t;
+
+                intr.Id = table.Single().Id;
+                intr.Interest1 = table.Single().Interest1;
+            }
+        }
+
         public void AddUserInfo(User_info info)
         {
             User_info temp = new User_info();

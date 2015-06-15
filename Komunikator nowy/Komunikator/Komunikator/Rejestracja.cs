@@ -41,17 +41,27 @@ namespace Komunikator
         private void buttonRegister_Click(object sender, EventArgs e)
         {
            
+           
             User_info info = new User_info();
+
             try
             {
+      
+                List<string> birth = new List<string>();
+                birth.Add(textBoxR.Text);
+                birth.Add(textBoxM.Text);
+                birth.Add(textBoxD.Text);
+                string bdate = string.Join("-", birth);
                 
+
+                DateTime dt = DateTime.Parse(bdate);
 
                 info.Name = this.textBoxName.Text;
                 info.Surname = this.textBoxSurname.Text;
                 info.City = this.textBoxCity.Text;
                 info.Email = this.textBoxEmail.Text;
                 info.Password = this.textBoxPassword.Text;
-                info.Birthdate = this.comboBoxDay.SelectedText;
+                info.Birthdate = dt;
                 //+ this.comboBoxMonth.SelectedText + this.comboBoxYear.SelectedText;
                 info.isBusy = false;
                 info.isConnected = false;
@@ -63,10 +73,10 @@ namespace Komunikator
                 {
                     info.Sex = this.radioButtonMale.Text;
                 }
-                /*if (radioButtonUndefined.Checked)
+                if (radioButtonUndefined.Checked)
                 {
                     info.Sex = "inny";
-                }*/
+                }
 
             } catch(Exception ex)
             {

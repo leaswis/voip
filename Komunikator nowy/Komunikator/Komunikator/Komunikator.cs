@@ -21,7 +21,7 @@ namespace Komunikator
         int loggedUser;
  
       Logic logic = new Logic();
-
+      DateTime today = DateTime.Today;
         //List<Image> list = new List<Image>();
 
         public Komunikator(int dataReceived)
@@ -35,6 +35,8 @@ namespace Komunikator
             string name = info.Name;
             labelHello.Text = "Witaj " + name + "!";
 
+           // DateTime bd = info.Birthdate;
+            //int bdate = today.Year - bd.Year;
             
             int[] list = takeListInterest(user_interest, loggedUser);
 

@@ -655,7 +655,7 @@ namespace Komunikator
 		
 		private string _Localization;
 		
-		private string _Birthdate;
+		private System.Nullable<System.DateTime> _Birthdate;
 		
 		private string _Name;
 		
@@ -683,7 +683,7 @@ namespace Komunikator
     partial void OnSexChanged();
     partial void OnLocalizationChanging(string value);
     partial void OnLocalizationChanged();
-    partial void OnBirthdateChanging(string value);
+    partial void OnBirthdateChanging(System.Nullable<System.DateTime> value);
     partial void OnBirthdateChanged();
     partial void OnNameChanging(string value);
     partial void OnNameChanged();
@@ -767,8 +767,8 @@ namespace Komunikator
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Birthdate", DbType="VarChar(50)")]
-		public string Birthdate
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Birthdate", DbType="Date")]
+		public System.Nullable<System.DateTime> Birthdate
 		{
 			get
 			{

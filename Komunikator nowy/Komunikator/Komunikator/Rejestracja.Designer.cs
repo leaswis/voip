@@ -44,8 +44,6 @@
             this.radioButtonFemale = new System.Windows.Forms.RadioButton();
             this.radioButtonMale = new System.Windows.Forms.RadioButton();
             this.radioButtonUndefined = new System.Windows.Forms.RadioButton();
-            this.comboBoxDay = new System.Windows.Forms.ComboBox();
-            this.comboBoxYear = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -66,7 +64,9 @@
             this.checkBoxSport = new System.Windows.Forms.CheckBox();
             this.checkBoxFashion = new System.Windows.Forms.CheckBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.comboBoxMonth = new System.Windows.Forms.ComboBox();
+            this.textBoxD = new System.Windows.Forms.TextBox();
+            this.textBoxM = new System.Windows.Forms.TextBox();
+            this.textBoxR = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -225,100 +225,6 @@
             this.radioButtonUndefined.TabStop = true;
             this.radioButtonUndefined.Text = "Nieokreślony";
             this.radioButtonUndefined.UseVisualStyleBackColor = true;
-            // 
-            // comboBoxDay
-            // 
-            this.comboBoxDay.FormattingEnabled = true;
-            this.comboBoxDay.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
-            "31"});
-            this.comboBoxDay.Location = new System.Drawing.Point(232, 259);
-            this.comboBoxDay.Name = "comboBoxDay";
-            this.comboBoxDay.Size = new System.Drawing.Size(41, 21);
-            this.comboBoxDay.TabIndex = 14;
-            // 
-            // comboBoxYear
-            // 
-            this.comboBoxYear.FormattingEnabled = true;
-            this.comboBoxYear.Items.AddRange(new object[] {
-            "2005",
-            "2004",
-            "2003",
-            "2002",
-            "2001",
-            "2000",
-            "1999",
-            "1998",
-            "1997",
-            "1996",
-            "1995",
-            "1994",
-            "1993",
-            "1992",
-            "1991",
-            "1990",
-            "1989",
-            "1988",
-            "1987",
-            "1986",
-            "1985",
-            "1984",
-            "1983",
-            "1982",
-            "1981",
-            "1980",
-            "1979",
-            "1978",
-            "1977",
-            "1976",
-            "1975",
-            "1974",
-            "1973",
-            "1972",
-            "1971",
-            "1970",
-            "1969",
-            "1968",
-            "1967",
-            "1966",
-            "1965",
-            "1964",
-            "1963",
-            "1962",
-            "1961",
-            "1960"});
-            this.comboBoxYear.Location = new System.Drawing.Point(366, 260);
-            this.comboBoxYear.Name = "comboBoxYear";
-            this.comboBoxYear.Size = new System.Drawing.Size(54, 21);
-            this.comboBoxYear.TabIndex = 16;
             // 
             // label8
             // 
@@ -556,26 +462,26 @@
             this.label11.Text = "ZAINTERESOWANIA";
             this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
-            // comboBoxMonth
+            // textBoxD
             // 
-            this.comboBoxMonth.FormattingEnabled = true;
-            this.comboBoxMonth.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12"});
-            this.comboBoxMonth.Location = new System.Drawing.Point(299, 260);
-            this.comboBoxMonth.Name = "comboBoxMonth";
-            this.comboBoxMonth.Size = new System.Drawing.Size(41, 21);
-            this.comboBoxMonth.TabIndex = 15;
+            this.textBoxD.Location = new System.Drawing.Point(232, 259);
+            this.textBoxD.Name = "textBoxD";
+            this.textBoxD.Size = new System.Drawing.Size(41, 20);
+            this.textBoxD.TabIndex = 46;
+            // 
+            // textBoxM
+            // 
+            this.textBoxM.Location = new System.Drawing.Point(300, 259);
+            this.textBoxM.Name = "textBoxM";
+            this.textBoxM.Size = new System.Drawing.Size(41, 20);
+            this.textBoxM.TabIndex = 47;
+            // 
+            // textBoxR
+            // 
+            this.textBoxR.Location = new System.Drawing.Point(366, 259);
+            this.textBoxR.Name = "textBoxR";
+            this.textBoxR.Size = new System.Drawing.Size(59, 20);
+            this.textBoxR.TabIndex = 48;
             // 
             // Rejestracja
             // 
@@ -583,6 +489,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(663, 539);
+            this.Controls.Add(this.textBoxR);
+            this.Controls.Add(this.textBoxM);
+            this.Controls.Add(this.textBoxD);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.checkBoxPersonalGrowth);
             this.Controls.Add(this.checkBoxTravels);
@@ -603,9 +512,6 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.comboBoxYear);
-            this.Controls.Add(this.comboBoxMonth);
-            this.Controls.Add(this.comboBoxDay);
             this.Controls.Add(this.radioButtonUndefined);
             this.Controls.Add(this.radioButtonMale);
             this.Controls.Add(this.radioButtonFemale);
@@ -645,8 +551,6 @@
         private System.Windows.Forms.RadioButton radioButtonFemale;
         private System.Windows.Forms.RadioButton radioButtonMale;
         private System.Windows.Forms.RadioButton radioButtonUndefined;
-        private System.Windows.Forms.ComboBox comboBoxDay;
-        private System.Windows.Forms.ComboBox comboBoxYear;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
@@ -667,6 +571,8 @@
         private System.Windows.Forms.CheckBox checkBoxSport;
         private System.Windows.Forms.CheckBox checkBoxFashion;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox comboBoxMonth;
+        private System.Windows.Forms.TextBox textBoxD;
+        private System.Windows.Forms.TextBox textBoxM;
+        private System.Windows.Forms.TextBox textBoxR;
     }
 }
