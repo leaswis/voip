@@ -55,6 +55,7 @@ namespace Komunikator
                 info.isBusy = table.Single().isBusy;
                 info.isConnected = table.Single().isConnected;
 
+
                 //do rejes.
                 //info.interestID = table.Single().interestID;
 
@@ -183,6 +184,40 @@ namespace Komunikator
           
         }
 
+
+
+        public List<int> GetContacts(int hostID) 
+        {
+            List<int> contacts = new List<int>();
+
+            using (var dbContext = new LinqClassesDataContext())
+            {
+
+                var table = from t in dbContext.Contacts
+                            where t.hostID == hostID
+                            select t;
+
+                for (int i = 0; i < table.Count(); i++)
+                {
+                    var temp = table.ToArray()[i].contactID;
+                    int contact = (int)temp;
+                    contacts.Add(contact);
+                }
+            }
+            return contacts;
+        }
+
+        public void AddContact(int hostId, int contactId) 
+        {
+            Contact temp = new Contact();
+            temp.hostID = hostId;
+            temp.contactID = contactId;
+            using (var db = new LinqClassesDataContext())
+            {
+                db.Contacts.InsertOnSubmit(temp);
+                db.SubmitChanges();
+            }
+        }
 
         }
 

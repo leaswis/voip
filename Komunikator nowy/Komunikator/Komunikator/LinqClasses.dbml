@@ -1,9 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Communicator" Class="LinqClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=LAURA-KOMPUTER\SQLEXPRESS;Initial Catalog=Communicator;Integrated Security=True" SettingsObjectName="Komunikator.Properties.Settings" SettingsPropertyName="CommunicatorConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Contacts" Member="Contacts">
-    <Type Name="Contact">
-      <Column Name="hostID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="contactID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=PRZEMEK;Initial Catalog=Communicator;Integrated Security=True" SettingsObjectName="Komunikator.Properties.Settings" SettingsPropertyName="CommunicatorConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.UserInterest" Member="UserInterests">
+    <Type Name="UserInterest">
+      <Column Name="interestID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="userID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="Interest_UserInterest" Member="Interest" ThisKey="interestID" OtherKey="Id" Type="Interest" IsForeignKey="true" />
+      <Association Name="User_info_UserInterest" Member="User_info" ThisKey="userID" OtherKey="Id" Type="User_info" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.ImageAds" Member="ImageAds">
@@ -27,8 +30,8 @@
     <Type Name="Interest">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Interest" Member="Interest1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="Interest_InterestImage" Member="InterestImages" ThisKey="Id" OtherKey="interestID" Type="InterestImage" />
       <Association Name="Interest_UserInterest" Member="UserInterests" ThisKey="Id" OtherKey="interestID" Type="UserInterest" />
+      <Association Name="Interest_InterestImage" Member="InterestImages" ThisKey="Id" OtherKey="interestID" Type="InterestImage" />
     </Type>
   </Table>
   <Table Name="dbo.User_info" Member="User_infos">
@@ -47,13 +50,10 @@
       <Association Name="User_info_UserInterest" Member="UserInterests" ThisKey="Id" OtherKey="userID" Type="UserInterest" />
     </Type>
   </Table>
-  <Table Name="dbo.UserInterest" Member="UserInterests">
-    <Type Name="UserInterest">
-      <Column Name="interestID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="userID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Association Name="Interest_UserInterest" Member="Interest" ThisKey="interestID" OtherKey="Id" Type="Interest" IsForeignKey="true" />
-      <Association Name="User_info_UserInterest" Member="User_info" ThisKey="userID" OtherKey="Id" Type="User_info" IsForeignKey="true" />
+  <Table Name="dbo.Contacts" Member="Contacts">
+    <Type Name="Contact">
+      <Column Name="hostID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="contactID" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

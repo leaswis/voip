@@ -14,7 +14,7 @@ namespace Komunikator
     {
         Logic logic = new Logic();
         User_info user_info = new User_info();
-        int loggedUser;
+        public int loggedUser;
         UserInterest userint = new UserInterest();
         Interest intr = new Interest();
 
